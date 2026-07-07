@@ -1030,25 +1030,18 @@ body{background:
 @media(max-width:560px){.pf-nav{width:40px;height:40px;font-size:20px;}.album-btn{width:100%;}}
 
 /* ============================================================
-   師資團隊 — 深色控制室 crew panel（加深 + 質感）
+   師資團隊 — 精緻淺色卡（去除深底，改回明亮質感）
    ============================================================ */
-#faculty .section.mesh{background:linear-gradient(170deg,var(--navy) 0%,var(--navy2) 100%);border-radius:32px;margin:0 20px;padding:60px 44px !important;box-shadow:0 40px 100px -50px rgba(6,16,32,.8);}
-#faculty .section.mesh::before{opacity:.55;mix-blend-mode:screen;}
-#faculty .crew-label h3{color:#fff;}
-#faculty .crew-label span{color:rgba(210,225,245,.5);}
-#faculty .lead-card,#faculty .crew-card,#faculty .ta-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);box-shadow:0 24px 54px -28px rgba(0,0,0,.7);position:relative;overflow:hidden;}
-#faculty .lead-card::before,#faculty .crew-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.9;}
-#faculty .lead-card:hover,#faculty .crew-card:hover,#faculty .ta-card:hover{border-color:rgba(31,207,207,.42);box-shadow:0 30px 64px -26px rgba(0,0,0,.8);transform:translateY(-6px);}
-#faculty h4{color:#fff;}
-#faculty .role-tag{font-weight:800;background:linear-gradient(120deg,#4C93FF,var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-#faculty .org{color:var(--cyan) !important;}
-#faculty .skills{color:rgba(210,225,245,.66) !important;}
-#faculty .avatar{background:linear-gradient(155deg,#1a3050,#0C1A2E);box-shadow:0 0 0 2px rgba(31,207,207,.4),0 12px 26px -12px rgba(0,0,0,.7);}
-#faculty .avatar::after{color:var(--cyan);}
-#faculty .cert{color:#cfe9ff;border:1px solid rgba(31,207,207,.35);background:rgba(31,207,207,.08);}
-#faculty .crew-note{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--cyan);}
-#faculty .crew-note p{color:rgba(210,225,245,.8);}
-@media(max-width:560px){#faculty .section.mesh{margin:0 6px;padding:40px 22px !important;border-radius:24px;}}
+#faculty .section.mesh{background:linear-gradient(180deg,var(--bg-soft),var(--bg));}
+.lead-card,.crew-card,.ta-card{position:relative;overflow:hidden;background:var(--glass-strong);border:1px solid var(--glass-b);box-shadow:var(--shadow-card);transition:.4s var(--ease);}
+.lead-card::before,.crew-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+.lead-card:hover,.crew-card:hover,.ta-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);border-color:rgba(10,108,255,.28);}
+.lead-card .role-tag{font-weight:800;background:linear-gradient(120deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.lead-card .org,.crew-card .org{color:var(--blue);font-weight:600;}
+.lead-card .avatar,.crew-card .avatar,.ta-card .avatar{box-shadow:0 0 0 2px rgba(10,108,255,.18),var(--shadow-card);}
+.ta-card .cert{color:var(--blue);border:1px solid rgba(10,108,255,.25);background:rgba(10,108,255,.06);}
+.crew-note{background:var(--glass-strong);border:1px solid var(--glass-b);border-left:3px solid var(--cyan);}
+.crew-note p{color:var(--ink-soft);}
 
 /* ============================================================
    學員專區 — 更有層次的名片
@@ -1062,6 +1055,20 @@ body{background:
 .student-card:hover::before{opacity:1;height:4px;}
 .student-card .st-link.todo{color:var(--ink-faint);background:var(--bg-deep);border:1px solid var(--line);padding:5px 11px;border-radius:100px;font-size:11px;}
 #students .section.mesh{background:linear-gradient(180deg,var(--bg-soft),var(--bg));}
+
+
+/* 每日相簿（可選日期）*/
+.dayalbum{background:var(--glass-strong);border:1px solid var(--glass-b);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:18px;}
+.da-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.da-tab{font-family:var(--font-mono);font-size:13px;font-weight:700;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);cursor:pointer;transition:.25s var(--ease);}
+.da-tab:hover{color:var(--ink);border-color:var(--blue);}
+.da-tab.active{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;box-shadow:0 8px 20px -8px rgba(10,108,255,.5);}
+.da-frame{position:relative;width:100%;aspect-ratio:16/10;min-height:440px;border-radius:14px;overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.da-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.da-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px;}
+.da-note{font-size:12px;color:var(--ink-faint);font-family:var(--font-mono);line-height:1.6;flex:1;min-width:220px;}
+.da-btn{font-family:var(--font-mono);font-size:12.5px;font-weight:700;color:var(--blue);white-space:nowrap;}
+@media(max-width:560px){.da-frame{min-height:320px;aspect-ratio:3/4;}}
 
 </style>
 </head>
@@ -1470,31 +1477,25 @@ body{background:
 
     <!-- 現場實錄：Cinematic Photo Flow（活動照片故事流）+ Day5 分組簡報 -->
     <div class="bento-intro" style="margin-top:64px" data-reveal>
-      <div class="eyebrow">Behind the Scenes · Story Flow</div>
-      <h2>每日現場，一次一張慢慢看。</h2>
-      <p>每日現場照片以大圖輪播呈現：自動播放下一張，也能用左右箭頭手動切換；點擊可放大瀏覽。開訓、Day1–Day5 依序播放。</p>
+      <div class="eyebrow">Behind the Scenes · 每日相簿</div>
+      <h2>每日現場照片。</h2>
+      <p>點上方日期，瀏覽當天的現場花絮。想要幻燈片自動輪播，可把每個日期的相簿換成 Google Photos 相簿嵌入。</p>
     </div>
-    <div class="bento" data-reveal>
-      <div class="cell c6 photoflow" id="photoFlow" title="點擊進入全螢幕沉浸模式">
-        <div class="pf-stage"></div>
-        <div class="pf-overlay">
-          <div class="pf-top"><span class="pf-wk">WEEK 01</span><span class="pf-count">01 / 06</span></div>
-          <div class="pf-bottom"><div class="pf-cap"></div><div class="pf-progress"><i class="pf-bar"></i></div></div>
-        </div>
-        <button class="pf-nav prev" aria-label="上一張">&#8249;</button>
-        <button class="pf-nav next" aria-label="下一張">&#8250;</button>
-        <button class="pf-expand" aria-label="放大瀏覽">&#10530;</button>
-        <div class="pf-dots"></div>
+    <div class="dayalbum" data-reveal>
+      <div class="da-tabs" id="daTabs">
+        <button class="da-tab active" data-src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid">開訓</button>
+        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO#grid">Day 1</button>
+        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM#grid">Day 2</button>
+        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt#grid">Day 3</button>
+        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER#grid">Day 4</button>
+        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1tlBjW8Krczql64GURWW4E13AYfi5SA2X#grid">Day 5</button>
+      </div>
+      <div class="da-frame"><iframe id="daFrame" src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid" loading="lazy" allowfullscreen title="每日現場照片"></iframe></div>
+      <div class="da-foot">
+        <p class="da-note">切換上方日期即可看該日照片。若此處空白，請把 Google 相簿設為「知道連結的人皆可檢視」。</p>
+        <a class="da-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">開啟完整相簿 →</a>
       </div>
     </div>
-    <div class="album-links" data-reveal>
-      <a class="album-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">
-        <span class="album-ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
-        <span class="album-tx"><b>每日完整相簿</b><small>開訓 · Day1–Day5 · Google Drive</small></span>
-        <span class="ar">→</span>
-      </a>
-    </div>
-
     <div class="bento-intro" style="margin-top:56px" data-reveal>
       <div class="eyebrow">Day 5 Showcase · 分組簡報</div>
       <h2>第一週 · 各組成果簡報。</h2>
@@ -2123,6 +2124,19 @@ const STUDENTS=[
       +'<h4>'+st.name+'</h4>'+intro+link
       +'</'+tag+'>';
   }).join('');
+})();
+
+// 每日相簿：日期切換
+(function dayAlbum(){
+  var tabs=document.getElementById('daTabs'), fr=document.getElementById('daFrame');
+  if(!tabs||!fr) return;
+  tabs.querySelectorAll('.da-tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(b.classList.contains('active'))return;
+      tabs.querySelectorAll('.da-tab').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active'); fr.src=b.dataset.src;
+    });
+  });
 })();
 
 </script>
