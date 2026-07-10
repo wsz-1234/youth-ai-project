@@ -1152,6 +1152,185 @@ body{background:
 .h-card:hover .h-tag{opacity:1;transform:none;}
 .h-media.nf{display:flex;align-items:center;justify-content:center;}
 
+
+/* ================= DARK MODE ================= */
+:root{color-scheme:light;}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:100px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--ink-soft);transition:.3s var(--ease);margin-left:6px;flex-shrink:0;}
+.theme-toggle:hover{color:var(--blue);border-color:var(--blue);}
+.theme-toggle svg{width:17px;height:17px;}
+.theme-toggle .th-moon{display:none;}
+:root[data-theme="dark"] .theme-toggle .th-sun{display:none;}
+:root[data-theme="dark"] .theme-toggle .th-moon{display:block;}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  /* 使用者指定配色：#0F1A26 深藍 / #4C6178 石板 / #A0A7B4 灰 / #CFDBED 淡冰藍 / #F5B94A 暖橘 */
+  --bg:#0F1A26;--bg-soft:#182535;--bg-deep:#1F2E42;
+  --ink:#E8EEF8;--ink-soft:#CFDBED;--ink-faint:#A0A7B4;
+  --line:rgba(207,219,237,.14);
+  --glass:rgba(76,97,120,.28);--glass-strong:rgba(76,97,120,.38);--glass-border:rgba(207,219,237,.15);
+  --shadow-card:0 12px 30px -14px rgba(0,0,0,.6);
+  --shadow-soft:0 26px 66px -22px rgba(0,0,0,.72);
+  /* 深色下的重點：暖橘 accent，主色改用淡冰藍為連結色系 */
+  --blue:#8FB4E8;--blue-2:#5D8FCF;--cyan:#F5B94A;--purple:#F5B94A;
+}
+:root[data-theme="dark"] body{background:
+  radial-gradient(46% 52% at 10% 2%,rgba(76,97,120,.35),transparent 62%),
+  radial-gradient(42% 48% at 92% 6%,rgba(245,185,74,.10),transparent 62%),
+  radial-gradient(50% 56% at 84% 96%,rgba(207,219,237,.08),transparent 64%),
+  linear-gradient(180deg,#0F1A26 0%,#132133 55%,#0F1A26 100%);}
+:root[data-theme="dark"] .eyebrow{color:#F5B94A;}
+:root[data-theme="dark"] .eyebrow::before{background:linear-gradient(135deg,#F5B94A,#E39B2A);box-shadow:0 0 0 4px rgba(245,185,74,.15);}
+:root[data-theme="dark"] .rec-eyebrow,:root[data-theme="dark"] .st-no,:root[data-theme="dark"] .paper-no,:root[data-theme="dark"] .reward-stage,:root[data-theme="dark"] .num,:root[data-theme="dark"] .role-tag{color:#F5B94A !important;}
+:root[data-theme="dark"] .st-big em,:root[data-theme="dark"] .grad{background:linear-gradient(120deg,#F5B94A,#FFD483) !important;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+:root[data-theme="dark"] .btn-primary,:root[data-theme="dark"] .nav-cta{background:linear-gradient(135deg,#F5B94A,#E39B2A);color:#0F1A26;box-shadow:0 14px 30px -12px rgba(245,185,74,.5);}
+:root[data-theme="dark"] .btn-primary:hover{box-shadow:0 18px 34px -10px rgba(245,185,74,.6);}
+:root[data-theme="dark"] .wk-media-btn:hover{color:#F5B94A;border-color:#F5B94A;box-shadow:0 8px 18px -8px rgba(245,185,74,.4);}
+:root[data-theme="dark"] .status-chip.st-live,:root[data-theme="dark"] .st.live{color:#F5B94A;background:rgba(245,185,74,.14);border-color:rgba(245,185,74,.32);}
+:root[data-theme="dark"] .st.live .dot,:root[data-theme="dark"] .status-chip.st-live .dot{background:#F5B94A;}
+:root[data-theme="dark"] .rail-node.done .line{background:linear-gradient(90deg,#8FB4E8,#F5B94A);}
+:root[data-theme="dark"] .rail-node.done .dot{background:#F5B94A;border-color:#F5B94A;box-shadow:0 0 0 4px rgba(245,185,74,.14);}
+:root[data-theme="dark"] .rail-node.done .lbl{color:#F5B94A;}
+:root[data-theme="dark"] .rail-node.live .dot{border-color:#F5B94A;animation:nodepulse 1.8s infinite;}
+:root[data-theme="dark"] .rail-node.live .lbl{color:#F5B94A;font-weight:700;}
+:root[data-theme="dark"] .boss-chip{background:rgba(245,185,74,.10);border:1px solid rgba(245,185,74,.28);color:#F5B94A;}
+:root[data-theme="dark"] .job-chip.core,:root[data-theme="dark"] .ribbon{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;box-shadow:0 8px 20px -8px rgba(245,185,74,.5);}
+:root[data-theme="dark"] .step-badge{background:linear-gradient(120deg,#8FB4E8,#5D8FCF);color:#0F1A26;}
+:root[data-theme="dark"] .feat-ic{background:linear-gradient(135deg,#8FB4E8,#5D8FCF);box-shadow:0 8px 18px -8px rgba(143,180,232,.5);}
+:root[data-theme="dark"] .feat-card:nth-child(3n+2) .feat-ic,:root[data-theme="dark"] .feat-card:nth-child(3n+3) .feat-ic{background:linear-gradient(135deg,#F5B94A,#E39B2A);box-shadow:0 8px 18px -8px rgba(245,185,74,.5);}
+:root[data-theme="dark"] .cta-band,:root[data-theme="dark"] .reward-total{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+:root[data-theme="dark"] .reward-total b,:root[data-theme="dark"] .reward-total span{color:#0F1A26;}
+:root[data-theme="dark"] .paper::before,:root[data-theme="dark"] .lead-card::before,:root[data-theme="dark"] .crew-card::before,:root[data-theme="dark"] .student-card::before{background:linear-gradient(90deg,#F5B94A,#8FB4E8);}
+:root[data-theme="dark"] .panel,:root[data-theme="dark"] .glass{background:var(--glass-strong);border-color:var(--glass-border);}
+:root[data-theme="dark"] .lead-card,:root[data-theme="dark"] .crew-card,:root[data-theme="dark"] .ta-card,:root[data-theme="dark"] .student-card,:root[data-theme="dark"] .paper,:root[data-theme="dark"] .career-col,:root[data-theme="dark"] .reward-card,:root[data-theme="dark"] .vmda-card,:root[data-theme="dark"] .step-card,:root[data-theme="dark"] .feat-card,:root[data-theme="dark"] .w-chip,:root[data-theme="dark"] .rail,:root[data-theme="dark"] .dayalbum,:root[data-theme="dark"] .gateway,:root[data-theme="dark"] .case,:root[data-theme="dark"] .hero-stats2 div{background:var(--glass-strong);border-color:var(--glass-border);color:var(--ink);}
+:root[data-theme="dark"] .tag-pill{background:rgba(10,108,255,.14);color:var(--cyan);}
+:root[data-theme="dark"] .job-chip{background:rgba(232,238,250,.06);color:var(--ink-soft);border-color:var(--line);}
+:root[data-theme="dark"] .da-tab{background:rgba(232,238,250,.06);color:var(--ink-soft);border-color:var(--line);}
+:root[data-theme="dark"] .da-frame,:root[data-theme="dark"] .case-shot{background:#0B1425;}
+:root[data-theme="dark"] nav{background:rgba(15,25,48,.75);}
+:root[data-theme="dark"] .mobile-menu{background:rgba(15,25,48,.94);}
+:root[data-theme="dark"] .nav-links a:hover,:root[data-theme="dark"] .nav-links a.active{background:rgba(10,108,255,.18);}
+:root[data-theme="dark"] .theme-toggle{color:var(--ink);border-color:var(--line);}
+:root[data-theme="dark"] .poster-frame{background:#111C33;border-color:var(--line);}
+:root[data-theme="dark"] .stats,:root[data-theme="dark"] .cell{background:var(--glass-strong);}
+:root[data-theme="dark"] .crew-note{background:var(--glass-strong);color:var(--ink);}
+:root[data-theme="dark"] footer{background:transparent;border-color:var(--line);}
+
+/* ================= 週次媒體按鈕 ================= */
+.wk-media{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.wk-media-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:100px;font-family:var(--font-mono);font-size:11.5px;font-weight:700;letter-spacing:.02em;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;transition:.25s var(--ease);}
+.wk-media-btn:hover{transform:translateY(-2px);color:var(--blue);border-color:var(--blue);box-shadow:0 8px 18px -8px rgba(10,108,255,.4);}
+.wk-media-btn .wm-ic{display:inline-flex;width:14px;height:14px;}
+.wk-media-btn .wm-ic svg{width:14px;height:14px;stroke:currentColor;}
+.wk-media-btn.locked{opacity:.5;cursor:not-allowed;pointer-events:none;}
+:root[data-theme="dark"] .wk-media-btn{background:rgba(232,238,250,.06);}
+
+/* ================= 週次 Modal ================= */
+.wk-modal{display:none !important;}
+.wk-modal.open{display:flex;}
+.wkm-backdrop{position:absolute;inset:0;background:rgba(11,20,37,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+.wkm-panel{position:relative;z-index:2;width:min(960px,100%);max-height:min(88vh,780px);border-radius:20px;overflow:hidden;background:var(--bg);border:1px solid var(--line);box-shadow:0 40px 100px -20px rgba(0,0,0,.6);display:flex;flex-direction:column;animation:wkmIn .4s cubic-bezier(.2,.9,.2,1);}
+@keyframes wkmIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.wkm-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);}
+.wkm-title{font-family:var(--font-display);font-size:16px;font-weight:800;}
+.wkm-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;font-size:14px;transition:.25s var(--ease);}
+.wkm-close:hover{background:var(--bg-soft);color:var(--ink);}
+.wkm-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:12px 20px 0;}
+.wkm-tabs:empty{display:none;}
+.wkm-tab{padding:7px 13px;border-radius:100px;font-family:var(--font-mono);font-size:11.5px;font-weight:700;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);cursor:pointer;transition:.2s var(--ease);}
+.wkm-tab.active{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+.wkm-body{flex:1;position:relative;padding:20px;min-height:340px;}
+.wkm-body iframe{width:100%;height:100%;min-height:400px;border:0;border-radius:12px;background:#000;}
+@media(max-width:640px){.wkm-body{padding:12px;}.wkm-body iframe{min-height:280px;}}
+
+
+/* 週媒體目標區塊 · 進入時輕微強調（不刺眼）*/
+.wk-media-target{scroll-margin-top:120px;border-radius:var(--radius-lg);transition:box-shadow .8s ease,background .8s ease;}
+.wk-media-target.flash{box-shadow:0 0 0 3px rgba(10,108,255,.28),0 30px 60px -30px rgba(10,108,255,.35);}
+:root[data-theme="dark"] .wk-media-target.flash{box-shadow:0 0 0 3px rgba(245,185,74,.32),0 30px 60px -30px rgba(245,185,74,.4);}
+
+
+/* ================= 深色模式：漸層文字兜底 + 淺色卡文字對比 ================= */
+/* 1) 修復漸層文字在深色底變成「橘色方塊」的 bug */
+:root[data-theme="dark"] .hero h1 .grad,
+:root[data-theme="dark"] .hero-stats b,
+:root[data-theme="dark"] .stat-inline,
+:root[data-theme="dark"] .kickoff h2,
+:root[data-theme="dark"] .vmda-letter,
+:root[data-theme="dark"] .gateway .num,
+:root[data-theme="dark"] .lead-card .role-tag,
+:root[data-theme="dark"] .student-card .avatar::after,
+:root[data-theme="dark"] .st-big em{
+  background:none !important;
+  -webkit-background-clip:border-box !important;
+  background-clip:border-box !important;
+  -webkit-text-fill-color:currentColor !important;
+  color:#F5B94A !important;
+}
+/* .grad 需要 override 我之前的 gradient 規則（避免它把上面兜底又蓋掉）*/
+:root[data-theme="dark"] .grad,
+:root[data-theme="dark"] .st-big em{
+  background:none !important;
+  -webkit-background-clip:border-box !important;
+  background-clip:border-box !important;
+  -webkit-text-fill-color:#F5B94A !important;
+  color:#F5B94A !important;
+}
+/* hero-stats 藍青漸層 → 深色改單色淡冰藍，比較不搶眼 */
+:root[data-theme="dark"] .hero-stats b,
+:root[data-theme="dark"] .hero-stats2 b,
+:root[data-theme="dark"] .stat-inline{
+  color:#CFDBED !important;
+  -webkit-text-fill-color:#CFDBED !important;
+}
+/* VMDA 四個大字母，各用其角色色（V/M 暖橘、D/A 冰藍）*/
+:root[data-theme="dark"] .vmda-card:nth-child(1) .vmda-letter,
+:root[data-theme="dark"] .vmda-card:nth-child(2) .vmda-letter{color:#F5B94A !important;-webkit-text-fill-color:#F5B94A !important;}
+:root[data-theme="dark"] .vmda-card:nth-child(3) .vmda-letter,
+:root[data-theme="dark"] .vmda-card:nth-child(4) .vmda-letter{color:#8FB4E8 !important;-webkit-text-fill-color:#8FB4E8 !important;}
+/* Kickoff 標題 → 深色改暖橘漸層更穩定 */
+:root[data-theme="dark"] .kickoff h2{color:#F5B94A !important;-webkit-text-fill-color:#F5B94A !important;background:none !important;}
+
+/* 2) 淺色卡在深色底的「文字對比」全面補齊（避免整片看不見文字）*/
+:root[data-theme="dark"] .glass,
+:root[data-theme="dark"] .panel,
+:root[data-theme="dark"] .lead-card,
+:root[data-theme="dark"] .crew-card,
+:root[data-theme="dark"] .ta-card,
+:root[data-theme="dark"] .student-card,
+:root[data-theme="dark"] .paper,
+:root[data-theme="dark"] .career-col,
+:root[data-theme="dark"] .reward-card,
+:root[data-theme="dark"] .vmda-card,
+:root[data-theme="dark"] .step-card,
+:root[data-theme="dark"] .feat-card,
+:root[data-theme="dark"] .w-chip,
+:root[data-theme="dark"] .gateway,
+:root[data-theme="dark"] .case,
+:root[data-theme="dark"] .hero-stats2 div,
+:root[data-theme="dark"] .cell,
+:root[data-theme="dark"] .rail,
+:root[data-theme="dark"] .dayalbum,
+:root[data-theme="dark"] .crew-note,
+:root[data-theme="dark"] .callout,
+:root[data-theme="dark"] .stats{color:#E8EEF8;}
+:root[data-theme="dark"] .glass h1,:root[data-theme="dark"] .glass h2,:root[data-theme="dark"] .glass h3,:root[data-theme="dark"] .glass h4,
+:root[data-theme="dark"] .panel h1,:root[data-theme="dark"] .panel h2,:root[data-theme="dark"] .panel h3,:root[data-theme="dark"] .panel h4,
+:root[data-theme="dark"] .lead-card h4,:root[data-theme="dark"] .crew-card h4,:root[data-theme="dark"] .ta-card h4,
+:root[data-theme="dark"] .student-card h4,:root[data-theme="dark"] .paper h4,:root[data-theme="dark"] .vmda-card h4,
+:root[data-theme="dark"] .step-card h4,:root[data-theme="dark"] .feat-card h4,:root[data-theme="dark"] .w-chip h4,
+:root[data-theme="dark"] .gateway h3,:root[data-theme="dark"] .case h3,:root[data-theme="dark"] .career-col h4,
+:root[data-theme="dark"] .reward-card b,:root[data-theme="dark"] .callout .big{color:#E8EEF8 !important;}
+:root[data-theme="dark"] .glass p,:root[data-theme="dark"] .panel p,:root[data-theme="dark"] .lead-card .skills,
+:root[data-theme="dark"] .crew-card .skills,:root[data-theme="dark"] .paper>p,:root[data-theme="dark"] .vmda-card>p,
+:root[data-theme="dark"] .step-card>p,:root[data-theme="dark"] .feat-card>p,:root[data-theme="dark"] .w-chip p,
+:root[data-theme="dark"] .gateway p,:root[data-theme="dark"] .case-row p,:root[data-theme="dark"] .career-list li,
+:root[data-theme="dark"] .reward-card p,:root[data-theme="dark"] .crew-note p{color:#CFDBED !important;}
+/* poster 底色 */
+:root[data-theme="dark"] .poster-frame{background:#182535;}
+
+/* 3) VMDA 卡片內圈的裝飾光暈在深色下太亮，收斂 */
+:root[data-theme="dark"] .vmda-card::after{opacity:.06;}
+
 </style>
 </head>
 <body>
@@ -1208,6 +1387,10 @@ body{background:
     <a href="#students">學員</a>
     <a href="#faculty">師資團隊</a>
   </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色">
+    <svg class="th-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="th-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
   <span class="nav-badge">8W · 240H · 成果平台</span>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -1226,7 +1409,7 @@ body{background:
     <div data-reveal>
       <div class="eyebrow">AI × 智慧物流 · 成果展示平台</div>
       <h1>不是學 AI，<br>而是學會<br>如何解決<span class="grad">物流問題</span>。</h1>
-      <div class="week-mission" style="margin-bottom:18px;"><span>Mission Question · Day 1</span>「我們為何而戰？」</div>
+      <div class="week-mission" style="margin-bottom:18px;"><span>Mission Question </span>「我們為何而戰？」</div>
       <p class="lead">青年 AI 實戰養成班｜智慧物流班，以 8 週、240 小時的高強度實作歷程，結合工業技術研究院與企業真實場域，帶領青年學員從資料分析、AI 賦能到企業專題落地，完成一場真正的職涯轉型旅程。</p>
       <div class="hero-actions">
         <a href="#journey" class="btn btn-primary">📖 查看課程歷程</a>
@@ -1293,8 +1476,8 @@ body{background:
 <!-- ============ 2. STATEMENT — one big idea, huge whitespace ============ -->
 <section class="statement wrap-narrow" data-reveal>
   <div class="st-mark">“</div>
-  <p class="st-big">我們不是來學 <em>AI</em>，<br>是來學會 <em>與 AI 溝通</em> ——<br>協助自己做 <em>對的判斷</em>，放大產出的 <em>效率</em>。</p>
-  <span class="attribution">Allen 老師 · 臺中科大 AI 應用學程 · Day 1 啟動日</span>
+  <p class="st-big">我們不是來學 <em>AI</em><br>是來學會 <em>與 AI 溝通</em> <br>協助自己做 <em>對的判斷</em>，放大產出的 <em>效率</em>。</p>
+  <span class="attribution">Allen 老師 · 臺中科大 AI 應用學程</span>
 </section>
 
 <!-- ============ 3. THREE GATEWAYS ============ -->
@@ -1369,8 +1552,8 @@ body{background:
 <!-- ============ 5. FOOTER (with partner marquee) ============ -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span><span>合作物流企業 B</span><span>合作物流企業 C</span>
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span><span>合作物流企業 B</span><span>合作物流企業 C</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span>
   </div>
 </div>
 </section>
@@ -1663,71 +1846,78 @@ body{background:
     </div>
     <div class="bento" id="phase2" data-reveal></div>
 
-    <!-- 課程錄影回放：整個八週每日錄影播放清單，隨進度更新 -->
-    <div class="bento-intro" style="margin-top:64px" data-reveal>
-      <div class="eyebrow">Course Replay · 課程錄影回放</div>
-      <h2>跟著八週，每一天都看得到。</h2>
-      <p>這份 YouTube 播放清單收錄八週每日課程錄影，隨課程進度持續新增——想複習哪一天，直接在下方播放器切換即可。</p>
-    </div>
-    <div class="bento" data-reveal>
-      <div class="cell c6 glass replay">
-        <div class="replay-head">
-          <div>
-            <span class="rec-eyebrow">Playlist · 八週每日錄影</span>
-            <h3>青年 AI 實戰養成班 · 智慧物流班 課程錄影</h3>
+  
+    <!-- ============ W1 媒體區（錄影 / 每日相簿 / 分組簡報，供週次卡導覽）============ -->
+    <div id="wkmedia-W1-replay" class="wk-media-target" data-reveal>
+      <div class="bento-intro" style="margin-top:56px">
+        <div class="eyebrow">W1 · Course Replay</div>
+        <h2>第一週 · 課程錄影回放。</h2>
+        <p>播放清單收錄八週每日錄影，隨進度持續新增；在下方播放器直接切換即可。</p>
+      </div>
+      <div class="bento">
+        <div class="cell c6 glass replay">
+          <div class="replay-head">
+            <div>
+              <span class="rec-eyebrow">Playlist · 八週每日錄影</span>
+              <h3>青年 AI 實戰養成班 · 智慧物流班 課程錄影</h3>
+            </div>
+            <a class="wk-link" href="https://www.youtube.com/playlist?list=PLPDYDW5Y5pg8" target="_blank" rel="noopener">在 YouTube 開啟完整清單 <span class="ar">→</span></a>
           </div>
-          <a class="wk-link" href="https://www.youtube.com/playlist?list=PLPDYDW5Y5pg8" target="_blank" rel="noopener">在 YouTube 開啟完整清單 <span class="ar">→</span></a>
-        </div>
-        <div class="replay-frame">
-          <iframe src="https://www.youtube.com/embed/videoseries?si=9UnlA62yCffcmFMp&amp;list=PLPDYDW5Y5pg8" title="課程錄影回放播放清單" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="replay-frame">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?si=9UnlA62yCffcmFMp&amp;list=PLPDYDW5Y5pg8" title="課程錄影回放播放清單" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- 現場實錄：Cinematic Photo Flow（活動照片故事流）+ Day5 分組簡報 -->
-    <div class="bento-intro" style="margin-top:64px" data-reveal>
-      <div class="eyebrow">Behind the Scenes · 每日相簿</div>
-      <h2>每日現場照片。</h2>
-      <p>點上方日期，瀏覽當天的現場花絮。想要幻燈片自動輪播，可把每個日期的相簿換成 Google Photos 相簿嵌入。</p>
-    </div>
-    <div class="dayalbum" data-reveal>
-      <div class="da-tabs" id="daTabs">
-        <button class="da-tab active" data-src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid">開訓</button>
-        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO#grid">Day 1</button>
-        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM#grid">Day 2</button>
-        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt#grid">Day 3</button>
-        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER#grid">Day 4</button>
-        <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1tlBjW8Krczql64GURWW4E13AYfi5SA2X#grid">Day 5</button>
+    <div id="wkmedia-W1-album" class="wk-media-target" data-reveal>
+      <div class="bento-intro" style="margin-top:56px">
+        <div class="eyebrow">W1 · Behind the Scenes</div>
+        <h2>第一週 · 每日現場照片。</h2>
+        <p>點上方日期，瀏覽當天的現場花絮。</p>
       </div>
-      <div class="da-frame"><iframe id="daFrame" src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid" loading="lazy" allowfullscreen title="每日現場照片"></iframe></div>
-      <div class="da-foot">
-        <p class="da-note">切換上方日期即可看該日照片。若此處空白，請把 Google 相簿設為「知道連結的人皆可檢視」。</p>
-        <a class="da-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">開啟完整相簿 →</a>
-      </div>
-    </div>
-    <div class="bento-intro" style="margin-top:56px" data-reveal>
-      <div class="eyebrow">Day 5 Showcase · 分組簡報</div>
-      <h2>第一週 · 各組成果簡報。</h2>
-    </div>
-    <div class="bento" data-reveal>
-      <div class="cell c6 glass">
-        <span class="rec-eyebrow">W1 · Day 5 分組簡報</span>
-        <div class="wres-block">
-          <div class="wres-head">
-            <div class="wres-tabs">
-              <button class="wres-tab active" data-src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000">第一組</button>
-              <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000">第二組</button>
-              <button class="wres-tab" data-src="https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/preview">第三組</button>
-              <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1DD71A9q3eh7d0dsKFZiq7DWo_AqfFubB/embed?start=false&loop=false&delayms=3000">第四組</button>
-              <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1hvgIDhwGT49hArLGYSQyxZ1HJiwkAHNH/embed?start=false&loop=false&delayms=3000">第五組</button>
-              <button class="wres-tab" data-src="https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview">第六組</button>
-              <button class="wres-tab" data-src="https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview">第七組</button>
-            </div>
-          </div>
-          <div class="wres-frame"><iframe src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000" loading="lazy" allowfullscreen></iframe></div>
+      <div class="dayalbum">
+        <div class="da-tabs" id="daTabs">
+          <button class="da-tab active" data-src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid">開訓</button>
+          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO#grid">Day 1</button>
+          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM#grid">Day 2</button>
+          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt#grid">Day 3</button>
+          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER#grid">Day 4</button>
+          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1tlBjW8Krczql64GURWW4E13AYfi5SA2X#grid">Day 5</button>
+        </div>
+        <div class="da-frame"><iframe id="daFrame" src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid" loading="lazy" allowfullscreen title="每日現場照片"></iframe></div>
+        <div class="da-foot">
+          <a class="da-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">開啟完整相簿 →</a>
         </div>
       </div>
     </div>
+
+    <div id="wkmedia-W1-decks" class="wk-media-target" data-reveal>
+      <div class="bento-intro" style="margin-top:56px">
+        <div class="eyebrow">W1 · Day 5 Showcase</div>
+        <h2>第一週 · 各組成果簡報。</h2>
+      </div>
+      <div class="bento">
+        <div class="cell c6 glass">
+          <span class="rec-eyebrow">W1 · Day 5 分組簡報</span>
+          <div class="wres-block">
+            <div class="wres-head">
+              <div class="wres-tabs">
+                <button class="wres-tab active" data-src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000">第一組</button>
+                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000">第二組</button>
+                <button class="wres-tab" data-src="https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/preview">第三組</button>
+                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1DD71A9q3eh7d0dsKFZiq7DWo_AqfFubB/embed?start=false&loop=false&delayms=3000">第四組</button>
+                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1hvgIDhwGT49hArLGYSQyxZ1HJiwkAHNH/embed?start=false&loop=false&delayms=3000">第五組</button>
+                <button class="wres-tab" data-src="https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview">第六組</button>
+                <button class="wres-tab" data-src="https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview">第七組</button>
+              </div>
+            </div>
+            <div class="wres-frame"><iframe src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000" loading="lazy" allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 </section>
@@ -1905,7 +2095,7 @@ body{background:
       </div>
       <div class="footer-cols">
         <div class="footer-col"><b>網站導覽</b><a href="#about">課程介紹</a><a href="#journey">8週歷程</a><a href="#projects">作品展示</a></div>
-        <div class="footer-col"><b>聯絡資訊</b><a href="mailto:elinor@itri.org.tw">課程行政：elinor@itri.org.tw</a><a href="tel:+88635918710">課程洽詢：吳小姐 03-5918710</a><a href="mailto:chen.chihteng@nutc.edu.tw">專案信箱：chen.chihteng@nutc.edu.tw</a><a href="https://reurl.cc/9WLeva" target="_blank" rel="noopener">專案網站 →</a><a href="https://reurl.cc/K2aaMe" target="_blank" rel="noopener">招生說明會簡報 →</a><a href="https://reurl.cc/xW4XX5" target="_blank" rel="noopener">LINE 課程諮詢社群 →</a></div>
+        <div class="footer-col"><b>聯絡資訊</b><a href="mailto:elinor@itri.org.tw">課程行政：elinor@itri.org.tw</a><a href="tel:+88635918710">課程洽詢：吳小姐 03-5918710</a><a href="mailto:chen.chihteng@nutc.edu.tw">專案信箱：chen.chihteng@nutc.edu.tw</a><a href="https://reurl.cc/9WLeva" target="_blank" rel="noopener">專案網站連結</a><a href="https://reurl.cc/K2aaMe" target="_blank" rel="noopener">招生說明會簡報連結</a><a href="https://reurl.cc/xW4XX5" target="_blank" rel="noopener">LINE 課程諮詢社群連結</a></div>
         <div class="footer-col"><b>主辦・執行・培訓</b><a href="#">主辦單位：經濟部商業發展署</a><a href="#">執行單位：商業服務業 AI 人才辦公室</a><a href="#">培訓單位：工業技術研究院</a></div>
       </div>
     </div>
@@ -2079,7 +2269,19 @@ document.querySelectorAll('.wres-block').forEach(block=>{
 const JOURNEY = [
   {wk:'W1',role:'資料驅動師',en:'Data-Driven Analyst',phase:'learn',status:'done',date:'2026/06/29',
    focus:'啟動日 · 清洗 · 儀表板 · RFM',boss:'BOSS I · 數據體檢報告',url:'https://learn.ctone.com.tw/W1/',
-   days:['啟動日 · VMDA 思維','資料清洗 · Pandas','儀表板 · Streamlit','RFM 客戶分群','BOSS I · 數據體檢報告']},
+   days:['啟動日 · VMDA 思維','資料清洗 · Pandas','儀表板 · Streamlit','RFM 客戶分群','BOSS I · 數據體檢報告'],
+   replay:'https://www.youtube.com/embed/videoseries?si=9UnlA62yCffcmFMp&list=PLPDYDW5Y5pg8',
+   album:'https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid',
+   albumHref:'https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28',
+   decks:[
+    {n:'第一組',src:'https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000'},
+    {n:'第二組',src:'https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000'},
+    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/preview'},
+    {n:'第四組',src:'https://docs.google.com/presentation/d/1DD71A9q3eh7d0dsKFZiq7DWo_AqfFubB/embed?start=false&loop=false&delayms=3000'},
+    {n:'第五組',src:'https://docs.google.com/presentation/d/1hvgIDhwGT49hArLGYSQyxZ1HJiwkAHNH/embed?start=false&loop=false&delayms=3000'},
+    {n:'第六組',src:'https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview'},
+    {n:'第七組',src:'https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview'}
+   ]},
   {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'live',date:'2026/07/06',
    focus:'五元組治理 · 主資料 · KRI/KPI',boss:'BOSS II · 物流控制塔 Alpha',url:'https://learn.ctone.com.tw/W2/',
    days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔']},
@@ -2119,8 +2321,9 @@ function jCard(w){
   const ds=(parseInt(w.wk.slice(1),10)-1)*5+1;
   const daysHtml=(w.days||[]).map((d,i)=>'<li><b>D'+(ds+i)+'</b><span>'+d+'</span></li>').join('');
   let tail;
+  const media = wkMedia(w);
   if(open){
-    tail=`<span class="boss-chip">${w.boss}</span>`+
+    tail=`<span class="boss-chip">${w.boss}</span>`+media+
       (w.url?`<a class="wk-link" href="${w.url}" target="_blank" rel="noopener">查看課程講義 <span class="ar">→</span></a>`:'');
   }else{
     const items=(w.deliv||['Day5 分組簡報','Demo 影片','課堂照片','學員心得']).map(d=>`<li><span class="box"></span>${d}</li>`).join('');
@@ -2136,6 +2339,20 @@ function jCard(w){
       <ul class="daylist">${daysHtml}</ul>
       ${tail}
     </div>`;
+}
+function wkMedia(w){
+  const hasReplay=!!w.replay, hasAlbum=!!(w.album||w.albumHref), hasDecks=!!(w.decks&&w.decks.length);
+  const btn=(on,ic,lb,attr)=> on
+    ? `<button class="wk-media-btn" ${attr}><span class="wm-ic">${ic}</span><span class="wm-lb">${lb}</span></button>`
+    : `<span class="wk-media-btn locked" title="尚未開放"><span class="wm-ic">${ic}</span><span class="wm-lb">${lb} · 尚未開放</span></span>`;
+  const iconVid='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10 10l5 3-5 3z"/></svg>';
+  const iconPic='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M4 20l6-6 4 4 3-3 6 6"/></svg>';
+  const iconSlide='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>';
+  return `<div class="wk-media">
+    ${btn(hasReplay,iconVid,'錄影',`data-media="replay" data-wk="${w.wk}"`)}
+    ${btn(hasAlbum,iconPic,'照片',`data-media="album" data-wk="${w.wk}"`)}
+    ${btn(hasDecks,iconSlide,'簡報',`data-media="decks" data-wk="${w.wk}"`)}
+  </div>`;
 }
 (function renderJourney(){
   const p1=document.getElementById('phase1'), p2=document.getElementById('phase2'), rail=document.getElementById('deliveryRail');
@@ -2153,6 +2370,51 @@ function jCard(w){
   rail.querySelectorAll('.rail-node').forEach(n=>n.addEventListener('click',()=>{
     const el=document.getElementById(n.dataset.go); if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
   }));
+  document.querySelectorAll('.wk-media-btn[data-media]').forEach(b=>b.addEventListener('click',e=>{
+    e.preventDefault(); e.stopPropagation();
+    const wk=b.dataset.wk, kind=b.dataset.media;
+    const targetId='wkmedia-'+wk+'-'+kind;
+    const el=document.getElementById(targetId);
+    if(el){ el.scrollIntoView({behavior:'smooth',block:'start'});
+      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+  }));
+})();
+
+function openWkModal(w, kind){
+  const m=document.getElementById('wkModal'); if(!m) return;
+  const body=m.querySelector('.wkm-body'), ttl=m.querySelector('.wkm-title'), tabs=m.querySelector('.wkm-tabs');
+  const heads={replay:'課程錄影 · '+w.wk, album:'現場照片 · '+w.wk, decks:'分組簡報 · '+w.wk+' Day 5'};
+  ttl.textContent=heads[kind]||w.wk;
+  tabs.innerHTML=''; body.innerHTML='';
+  if(kind==='replay'){
+    body.innerHTML='<iframe src="'+w.replay+'" loading="lazy" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>';
+  } else if(kind==='album'){
+    const src=w.album||w.albumHref;
+    body.innerHTML='<iframe src="'+src+'" loading="lazy" allowfullscreen></iframe>';
+    if(w.albumHref) body.insertAdjacentHTML('afterend','');
+  } else if(kind==='decks'){
+    w.decks.forEach((d,i)=>{
+      const btn=document.createElement('button');
+      btn.className='wkm-tab'+(i===0?' active':''); btn.textContent=d.n; btn.dataset.src=d.src;
+      btn.addEventListener('click',()=>{
+        tabs.querySelectorAll('.wkm-tab').forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        body.querySelector('iframe').src=d.src;
+      });
+      tabs.appendChild(btn);
+    });
+    body.innerHTML='<iframe src="'+w.decks[0].src+'" loading="lazy" allowfullscreen></iframe>';
+  }
+  m.classList.add('open'); document.body.style.overflow='hidden';
+}
+(function bindWkModal(){
+  const m=document.getElementById('wkModal'); if(!m) return;
+  function close(){m.classList.remove('open'); document.body.style.overflow='';
+    m.querySelectorAll('iframe').forEach(f=>f.src='about:blank');
+    m.querySelector('.wkm-tabs').innerHTML='';}
+  m.querySelector('.wkm-close').addEventListener('click',close);
+  m.querySelector('.wkm-backdrop').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))close();});
 })();
 
 // ============ 物流互動層 ============
@@ -2348,9 +2610,33 @@ const STUDENTS=[
   });
 })();
 
+// ========== 深色模式 ==========
+(function themeToggle(){
+  var r=document.documentElement, key='theme';
+  var saved=localStorage.getItem(key);
+  // 預設為淺色；只在使用者主動切換過才記住
+  r.setAttribute('data-theme', saved||'light');
+  var btn=document.getElementById('themeToggle'); if(!btn) return;
+  btn.addEventListener('click',function(){
+    var cur=r.getAttribute('data-theme')==='dark'?'light':'dark';
+    r.setAttribute('data-theme',cur); localStorage.setItem(key,cur);
+  });
+})();
+
 </script>
 <a class="line-fab" href="https://reurl.cc/xW4XX5" target="_blank" rel="noopener" aria-label="加入 LINE 課程諮詢社群" style="z-index: 99999 !important; display: flex; align-items: center; justify-content: center;">
   <img src="https://drive.google.com/thumbnail?id=1q06IVrZ2SCvTTU04F44Tf8VjGapMkY3-&sz=w180" alt="LINE 課程諮詢社群" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
 </a>
+<div class="wk-modal" id="wkModal" aria-hidden="true" role="dialog">
+  <div class="wkm-backdrop"></div>
+  <div class="wkm-panel">
+    <div class="wkm-head">
+      <h4 class="wkm-title">週次媒體</h4>
+      <button class="wkm-close" aria-label="關閉">&#10005;</button>
+    </div>
+    <div class="wkm-tabs"></div>
+    <div class="wkm-body"></div>
+  </div>
+</div>
 </body>
 </html>
