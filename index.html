@@ -1331,6 +1331,73 @@ body{background:
 /* 3) VMDA 卡片內圈的裝飾光暈在深色下太亮，收斂 */
 :root[data-theme="dark"] .vmda-card::after{opacity:.06;}
 
+
+/* ================= 深色模式：截圖三處補救 ================= */
+
+/* 1) 精選作品 h-card：白底改深色卡，標題/內文改亮色 */
+:root[data-theme="dark"] .h-card{background:var(--glass-strong) !important;border-color:var(--glass-border) !important;}
+:root[data-theme="dark"] .h-body h4{color:#E8EEF8 !important;}
+:root[data-theme="dark"] .h-body p{color:#CFDBED !important;}
+:root[data-theme="dark"] .h-body .tag-pill{background:rgba(245,185,74,.14) !important;color:#F5B94A !important;}
+:root[data-theme="dark"] .h-links a{color:#F5B94A !important;}
+
+/* 2) W1 Day5 分組簡報 wres-tab：deep 背景 + 亮字 */
+:root[data-theme="dark"] .wres-tab{background:rgba(207,219,237,.08) !important;color:#CFDBED !important;border:1px solid var(--line) !important;}
+:root[data-theme="dark"] .wres-tab:hover{color:#E8EEF8 !important;border-color:#F5B94A !important;}
+:root[data-theme="dark"] .wres-tab.active{background:linear-gradient(120deg,#F5B94A,#E39B2A) !important;color:#0F1A26 !important;border-color:transparent !important;}
+:root[data-theme="dark"] .bento .wres-tab{background:rgba(207,219,237,.08) !important;}
+
+/* 3) gateway 入口卡：hover 時漸層覆蓋擋住標題（學員專題）→ 拿掉覆蓋，改用邊光即可 */
+:root[data-theme="dark"] .gateway::before{display:none !important;}
+:root[data-theme="dark"] .gateway{background:var(--glass-strong) !important;}
+:root[data-theme="dark"] .gateway:hover{background:linear-gradient(165deg,rgba(76,97,120,.55),rgba(31,46,66,.7)) !important;border-color:rgba(245,185,74,.35) !important;}
+:root[data-theme="dark"] .gateway h3{color:#E8EEF8 !important;}
+:root[data-theme="dark"] .gateway p{color:#CFDBED !important;}
+:root[data-theme="dark"] .gateway .num{color:#F5B94A !important;background:none !important;-webkit-text-fill-color:#F5B94A !important;}
+:root[data-theme="dark"] .gateway .btn-arrow{color:#F5B94A !important;}
+:root[data-theme="dark"] .gateway::after{background:linear-gradient(90deg,#F5B94A,#8FB4E8) !important;}
+:root[data-theme="dark"] .gateway .gw-icon svg{stroke:#F5B94A !important;}
+:root[data-theme="dark"] .gateway .gw-dot{fill:#F5B94A !important;}
+:root[data-theme="dark"] .gateway .gw-box{stroke:#8FB4E8 !important;}
+:root[data-theme="dark"] .gateway .gw-p{stroke:#F5B94A !important;}
+
+
+/* 每日照片 · 大圖輪播 */
+.pgallery{background:var(--glass-strong);border:1px solid var(--glass-b);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:22px;}
+.pg-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.pg-tab{font-family:var(--font-mono);font-size:13px;font-weight:700;padding:8px 16px;border-radius:100px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);cursor:pointer;transition:.25s var(--ease);}
+.pg-tab:hover{color:var(--ink);border-color:var(--blue);}
+.pg-tab.active{background:linear-gradient(120deg,var(--blue),var(--cyan)) !important;color:#fff !important;border-color:transparent !important;box-shadow:0 8px 20px -8px rgba(10,108,255,.5);}
+.pg-stage{position:relative;border-radius:16px;overflow:hidden;background:#0F1A26;aspect-ratio:16/10;min-height:420px;}
+.pg-slide{position:absolute;inset:0;}
+.pg-slide img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .5s ease;}
+.pg-slide img[src=""]{opacity:0;}
+.pg-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:clamp(64px,10vw,140px);color:rgba(255,255,255,.85);letter-spacing:-.03em;background:linear-gradient(135deg,var(--dc,#0A6CFF),color-mix(in srgb,var(--dc,#0A6CFF) 55%,#0B1B33));}
+.pg-ph::before{content:'';position:absolute;inset:0;background-image:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.14) 50%,transparent 60%),repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 22px);}
+.pg-ph::after{content:'相簿照片載入中';position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:var(--font-mono);font-size:12px;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.6);}
+.pg-slide.ready .pg-ph{display:none;}
+.pg-cap{position:absolute;left:22px;right:22px;bottom:16px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#fff;pointer-events:none;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+.pg-cap b{font-family:var(--font-display);font-size:clamp(18px,2vw,22px);font-weight:800;}
+.pg-cap span{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;color:rgba(255,255,255,.85);}
+.pg-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(11,27,51,.4);backdrop-filter:blur(10px);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s var(--ease);}
+.pg-nav:hover{background:rgba(11,27,51,.7);transform:translateY(-50%) scale(1.06);}
+.pg-nav.prev{left:16px;}
+.pg-nav.next{right:16px;}
+.pg-thumbs{display:flex;gap:8px;margin-top:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;}
+.pg-thumbs::-webkit-scrollbar{height:6px;}
+.pg-thumb{position:relative;flex:0 0 84px;aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:linear-gradient(135deg,var(--dc,#0A6CFF),color-mix(in srgb,var(--dc,#0A6CFF) 55%,#0B1B33));transition:.25s var(--ease);}
+.pg-thumb img{width:100%;height:100%;object-fit:cover;}
+.pg-thumb::after{content:attr(data-i);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:14px;font-weight:700;color:rgba(255,255,255,.72);}
+.pg-thumb.on{border-color:var(--dc,#0A6CFF);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--dc,#0A6CFF) 60%,transparent);}
+.pg-thumb:hover{transform:translateY(-2px);}
+.pg-foot{margin-top:16px;text-align:center;}
+@media(max-width:560px){.pg-stage{min-height:280px;aspect-ratio:4/3;}.pg-nav{width:40px;height:40px;font-size:22px;}}
+
+/* 深色 */
+:root[data-theme="dark"] .pgallery{background:var(--glass-strong) !important;border-color:var(--glass-border) !important;}
+:root[data-theme="dark"] .pg-tab{background:rgba(207,219,237,.06) !important;color:#CFDBED !important;border-color:var(--line) !important;}
+:root[data-theme="dark"] .pg-tab.active{background:linear-gradient(120deg,#F5B94A,#E39B2A) !important;color:#0F1A26 !important;}
+
 </style>
 </head>
 <body>
@@ -1552,8 +1619,8 @@ body{background:
 <!-- ============ 5. FOOTER (with partner marquee) ============ -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span>
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 敬請期待</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 敬請期待</span>
   </div>
 </div>
 </section>
@@ -1643,8 +1710,8 @@ body{background:
 
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span><span>合作物流企業 B</span><span>合作物流企業 C</span>
-    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 A</span><span>合作物流企業 B</span><span>合作物流企業 C</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 敬請期待</span>
+    <span>主辦 · 經濟部商業發展署</span><span>執行 · 商業服務業AI人才辦公室</span><span>培訓 · 工業技術研究院</span><span>國立臺中科技大學 AI 應用學程</span><span>合作物流企業 敬請期待</span>
   </div>
 </div>
 
@@ -1799,7 +1866,7 @@ body{background:
   <div class="hero-split-grid">
     <div data-reveal>
       <div class="eyebrow">The Journey</div>
-      <h1>八週，<br>四種角色，<br>一場進化。</h1>
+      <h1>八週<br>四種角色<br>一場進化。</h1>
     </div>
     <div data-reveal>
       <p>這是一個會持續更新的學習時間軸，不是靜態課表。每完成一週，配送路線就亮起一站、解鎖成果；還沒到的週次以 Scheduled / Locked 呈現，版型一致、只有狀態不同——網站看起來像正在成長的數位展覽。</p>
@@ -1876,18 +1943,30 @@ body{background:
         <h2>第一週 · 每日現場照片。</h2>
         <p>點上方日期，瀏覽當天的現場花絮。</p>
       </div>
-      <div class="dayalbum">
-        <div class="da-tabs" id="daTabs">
-          <button class="da-tab active" data-src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid">開訓</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO#grid">Day 1</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM#grid">Day 2</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt#grid">Day 3</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER#grid">Day 4</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1tlBjW8Krczql64GURWW4E13AYfi5SA2X#grid">Day 5</button>
+      <div class="pgallery" id="pgallery">
+        <div class="pg-tabs" id="pgTabs">
+          <button class="pg-tab active" data-day="k">開訓</button>
+          <button class="pg-tab" data-day="d1">Day 1</button>
+          <button class="pg-tab" data-day="d2">Day 2</button>
+          <button class="pg-tab" data-day="d3">Day 3</button>
+          <button class="pg-tab" data-day="d4">Day 4</button>
+          <button class="pg-tab" data-day="d5">Day 5</button>
         </div>
-        <div class="da-frame"><iframe id="daFrame" src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid" loading="lazy" allowfullscreen title="每日現場照片"></iframe></div>
-        <div class="da-foot">
-          <a class="da-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">開啟完整相簿 →</a>
+
+        <div class="pg-stage">
+          <button class="pg-nav prev" id="pgPrev" aria-label="上一張">&#8249;</button>
+          <div class="pg-slide" id="pgSlide">
+            <img id="pgImg" alt="每日現場照片" loading="lazy">
+            <div class="pg-ph" id="pgPh"></div>
+            <div class="pg-cap"><b id="pgTitle">開訓典禮</b><span id="pgCount">1 / 5</span></div>
+          </div>
+          <button class="pg-nav next" id="pgNext" aria-label="下一張">&#8250;</button>
+        </div>
+
+        <div class="pg-thumbs" id="pgThumbs"></div>
+
+        <div class="pg-foot">
+          <a class="da-btn" id="pgOpen" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">在 Drive 開啟本日相簿 →</a>
         </div>
       </div>
     </div>
@@ -2621,6 +2700,65 @@ const STUDENTS=[
     var cur=r.getAttribute('data-theme')==='dark'?'light':'dark';
     r.setAttribute('data-theme',cur); localStorage.setItem(key,cur);
   });
+})();
+
+// ============ W1 每日照片大圖輪播 ============
+// 每天最多可放 N 張照片。src 填實際照片網址（Drive 分享連結會自動轉檔；
+// 若填 Google Drive 檔案 ID 也可）。src 留空 → 顯示漸層占位（該天/該張示意色）。
+// 想加更多張：在該天的 array 裡直接 push。
+const PHOTOS = {
+  k :{label:'開訓典禮',       color:'#0A6CFF', shots:[{src:''},{src:''},{src:''},{src:''}]},
+  d1:{label:'Day 1 · VMDA 啟動',color:'#1FCFCF', shots:[{src:''},{src:''},{src:''},{src:''},{src:''}]},
+  d2:{label:'Day 2 · 資料清洗', color:'#3F8CFF', shots:[{src:''},{src:''},{src:''},{src:''},{src:''}]},
+  d3:{label:'Day 3 · 儀表板',  color:'#8B6EFB', shots:[{src:''},{src:''},{src:''},{src:''},{src:''}]},
+  d4:{label:'Day 4 · RFM 分群',color:'#F5B94A', shots:[{src:''},{src:''},{src:''},{src:''},{src:''}]},
+  d5:{label:'Day 5 · BOSS I', color:'#FF6B9F', shots:[{src:''},{src:''},{src:''},{src:''},{src:''}]}
+};
+const DAY_FOLDER = {
+  k :'https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28',
+  d1:'https://drive.google.com/drive/folders/1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO',
+  d2:'https://drive.google.com/drive/folders/1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM',
+  d3:'https://drive.google.com/drive/folders/1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt',
+  d4:'https://drive.google.com/drive/folders/1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER',
+  d5:'https://drive.google.com/drive/folders/1tlBjW8Krczql64GURWW4E13AYfi5SA2X'
+};
+(function pgallery(){
+  var g=document.getElementById('pgallery'); if(!g) return;
+  function drv(u){ if(!u) return ''; var m=u.match(/\/file\/d\/([\w-]+)/); if(m) return 'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1600';
+    m=u.match(/[?&]id=([\w-]+)/); if(m) return 'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1600';
+    if(/^[\w-]{20,}$/.test(u)) return 'https://drive.google.com/thumbnail?id='+u+'&sz=w1600'; return u; }
+  var tabs=document.getElementById('pgTabs'), img=document.getElementById('pgImg'),
+      ph=document.getElementById('pgPh'), slide=document.getElementById('pgSlide'),
+      title=document.getElementById('pgTitle'), count=document.getElementById('pgCount'),
+      thumbs=document.getElementById('pgThumbs'), open=document.getElementById('pgOpen'),
+      stage=g.querySelector('.pg-stage');
+  var day='k', idx=0;
+  function render(){
+    var d=PHOTOS[day]; if(!d) return;
+    var shot=d.shots[idx]||{src:''}, src=drv(shot.src);
+    stage.style.setProperty('--dc',d.color);
+    img.src=src; slide.classList.toggle('ready', !!src);
+    title.textContent=d.label; count.textContent=(idx+1)+' / '+d.shots.length;
+    if(open) open.href=DAY_FOLDER[day]||open.href;
+    // thumbs
+    thumbs.innerHTML='';
+    d.shots.forEach(function(sh,i){
+      var t=document.createElement('button'); t.className='pg-thumb'+(i===idx?' on':''); t.dataset.i=String(i+1).padStart(2,'0');
+      var sSrc=drv(sh.src); if(sSrc){var im=document.createElement('img');im.src=sSrc;im.loading='lazy';im.alt='';t.appendChild(im);}
+      t.addEventListener('click',function(){idx=i;render();});
+      thumbs.appendChild(t);
+    });
+    tabs.querySelectorAll('.pg-tab').forEach(function(b){b.classList.toggle('active',b.dataset.day===day);});
+  }
+  tabs.querySelectorAll('.pg-tab').forEach(function(b){
+    b.addEventListener('click',function(){if(day===b.dataset.day)return; day=b.dataset.day; idx=0; render();});
+  });
+  document.getElementById('pgPrev').addEventListener('click',function(){var n=PHOTOS[day].shots.length; idx=(idx-1+n)%n; render();});
+  document.getElementById('pgNext').addEventListener('click',function(){var n=PHOTOS[day].shots.length; idx=(idx+1)%n; render();});
+  // 鍵盤方向鍵（滑過時）
+  g.tabIndex=0;
+  g.addEventListener('keydown',function(e){var n=PHOTOS[day].shots.length; if(e.key==='ArrowRight'){idx=(idx+1)%n;render();} else if(e.key==='ArrowLeft'){idx=(idx-1+n)%n;render();}});
+  render();
 })();
 
 </script>
