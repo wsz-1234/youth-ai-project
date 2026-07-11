@@ -1117,17 +1117,37 @@ body{background:
 
 
 /* 就業與獎勵 */
-.reward-grid{display:grid;grid-template-columns:1fr auto 1fr 1.1fr;gap:16px;align-items:stretch;margin-bottom:18px;}
-.reward-card{padding:26px;display:flex;flex-direction:column;gap:8px;}
-.reward-stage{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--blue);}
-.reward-amt{font-family:var(--font-mono);font-size:30px;font-weight:700;letter-spacing:-.01em;}
-.reward-card p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
-.reward-plus{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--ink-faint);}
-.reward-total{padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;text-align:center;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));border:none;}
-.reward-total span{font-size:13px;color:rgba(255,255,255,.85);}
-.reward-total b{font-family:var(--font-mono);font-size:38px;font-weight:700;color:#fff;letter-spacing:-.01em;}
-@media(max-width:860px){.reward-grid{grid-template-columns:1fr;}.reward-plus{display:none;}}
+.reward-row{display:grid;grid-template-columns:1fr auto 1fr auto 1.05fr;gap:16px;align-items:stretch;margin-bottom:22px;}
+.reward-card{padding:30px 32px;display:flex;flex-direction:column;gap:18px;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.reward-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft);}
+.reward-stage{display:block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--blue);}
+.reward-amt{display:block;font-family:var(--font-mono);font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.01em;line-height:1;color:var(--ink);margin-top:-8px;}
+.reward-conds{display:flex;flex-direction:column;gap:12px;margin-top:2px;}
+.reward-cond{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+.reward-cond svg{width:17px;height:17px;flex-shrink:0;fill:none !important;stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+.reward-op{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--ink-faint);animation:opPulse 3s ease-in-out infinite;}
+.reward-op:nth-of-type(4){animation-delay:1.2s;}
+@keyframes opPulse{0%,100%{transform:scale(1);opacity:.55;}50%{transform:scale(1.18);opacity:1;}}
+.reward-max{position:relative;overflow:hidden;border-radius:var(--radius-md);padding:30px 32px;display:flex;flex-direction:column;justify-content:center;gap:12px;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 20px 44px -20px rgba(10,108,255,.55);transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.reward-max:hover{transform:translateY(-5px);box-shadow:0 28px 56px -22px rgba(10,108,255,.65);}
+.reward-max .rmax-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.rmax-ring{transform-box:fill-box;transform-origin:150px 55px;animation:rmaxspin 20s linear infinite;}
+.rmax-ring2{transform-box:fill-box;transform-origin:46px 150px;animation:rmaxspin 26s linear infinite reverse;}
+@keyframes rmaxspin{to{transform:rotate(360deg);}}
+.rmax-spark{animation:rmaxtw 3s ease-in-out infinite;}
+.rmax-spark.s2{animation-delay:1s;}.rmax-spark.s3{animation-delay:2s;}
+@keyframes rmaxtw{0%,100%{opacity:.2;}50%{opacity:.9;}}
+.rmax-label{position:relative;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.9);}
+.rmax-label small{display:block;font-family:var(--font-display);font-size:14px;font-weight:600;color:#fff;letter-spacing:.02em;margin-top:4px;}
+.rmax-amt{position:relative;font-family:var(--font-mono);font-size:clamp(30px,3.6vw,44px);font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1;}
+/* 勾勾描邊動畫 */
+.reward-cond svg{width:16px;height:16px;flex-shrink:0;fill:none !important;stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+.reward-cond svg .rc-check{fill:none !important;stroke:var(--blue);stroke-dasharray:24;stroke-dashoffset:24;animation:rcdraw .6s var(--ease) forwards;}
+.reward-card:nth-child(1) .reward-cond:nth-child(2) .rc-check{animation-delay:.15s;}
+@keyframes rcdraw{to{stroke-dashoffset:0;}}
+@media(max-width:900px){.reward-row{grid-template-columns:1fr;}.reward-op{padding:2px 0;}}
+@media(prefers-reduced-motion:reduce){.rmax-ring,.rmax-ring2,.rmax-spark,.rc-check,.reward-op{animation:none !important;stroke-dashoffset:0 !important;}}
 .career-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;margin-bottom:18px;}
 .career-col{padding:26px;}
 .career-col h4{font-size:17px;margin-bottom:16px;}
@@ -1362,6 +1382,116 @@ body{background:
 :root[data-theme="dark"] .gateway .gw-box{stroke:#8FB4E8 !important;}
 :root[data-theme="dark"] .gateway .gw-p{stroke:#F5B94A !important;}
 
+
+/* 週次展開面板 */
+.wk-drop{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease);overflow:hidden;margin-top:0;}
+.wk-drop.open{grid-template-rows:1fr;margin-top:14px;}
+.wk-drop .wkd-inner{min-height:0;overflow:hidden;}
+.wk-drop.open .wkd-inner{padding:18px;background:rgba(233,242,255,.55);border:1px solid var(--line);border-radius:14px;}
+:root[data-theme="dark"] .wk-drop.open .wkd-inner{background:rgba(207,219,237,.06);border-color:var(--line);}
+.wkd-head{margin-bottom:14px;}
+.wkd-head b{font-family:var(--font-display);font-size:15px;color:var(--ink);display:block;}
+.wkd-head small{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);}
+:root[data-theme="dark"] .wkd-head b{color:#E8EEF8;}
+.wk-media-btn.is-open{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+:root[data-theme="dark"] .wk-media-btn.is-open{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+
+/* 每日相簿卡（在展開面板內）*/
+.wkd-days{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+.wkd-day{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;transition:.25s var(--ease);}
+.wkd-day:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);border-color:var(--blue);}
+.wkd-day-tag{font-family:var(--font-mono);font-size:10.5px;font-weight:700;color:var(--blue);letter-spacing:.06em;}
+.wkd-day-t{font-size:13.5px;font-weight:600;color:var(--ink);}
+.wkd-day-cta{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);margin-top:4px;}
+.wkd-day-cta i{font-style:normal;}
+:root[data-theme="dark"] .wkd-day{background:rgba(207,219,237,.06);border-color:var(--line);}
+:root[data-theme="dark"] .wkd-day-t{color:#E8EEF8;}
+:root[data-theme="dark"] .wkd-day:hover{border-color:#F5B94A;}
+:root[data-theme="dark"] .wkd-day-tag,:root[data-theme="dark"] .wkd-day-cta{color:#F5B94A;}
+
+/* 錄影占位 */
+.wkd-video-ph,.replay-ph{aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#0F1A26,#1F2E42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFDBED;text-align:center;padding:24px;}
+.wkd-video-ph svg,.replay-ph svg{width:48px;height:48px;stroke:#8FB4E8;}
+.wkd-video-ph b,.replay-ph b{font-family:var(--font-display);font-size:16px;color:#fff;}
+.wkd-video-ph span,.replay-ph span{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:#8FB4E8;}
+
+/* 簡報頁籤與 iframe */
+.wkd-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.wkd-tab{font-family:var(--font-mono);font-size:12px;font-weight:700;padding:7px 13px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.75);color:var(--ink-soft);cursor:pointer;transition:.2s var(--ease);}
+.wkd-tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+:root[data-theme="dark"] .wkd-tab{background:rgba(207,219,237,.06);color:#CFDBED;}
+:root[data-theme="dark"] .wkd-tab.active{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;border-color:transparent;}
+.wkd-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0F1A26;}
+.wkd-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+/* 作品區敬請期待 */
+.teaser-wrap{padding:20px 0;}
+.teaser-card{padding:44px 40px;position:relative;overflow:hidden;}
+.teaser-card h3{font-size:26px;margin:14px 0 12px;}
+.teaser-card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;max-width:640px;}
+.teaser-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.teaser-chips span{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);background:var(--bg-soft);border:1px solid var(--line);padding:6px 13px;border-radius:100px;}
+.teaser-preview{position:relative;margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;filter:blur(1px);}
+.tp-card{background:linear-gradient(160deg,var(--bg-deep),#fff);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-height:180px;}
+.tp-tag{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--blue);}
+.tp-line{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.35;}
+.tp-line.short{width:60%;opacity:.22;}
+.tp-veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(180deg,rgba(233,242,255,.3),rgba(233,242,255,.85));backdrop-filter:blur(4px);border-radius:14px;}
+.tp-veil b{font-family:var(--font-display);font-size:32px;background:linear-gradient(120deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.tp-veil span{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;}
+:root[data-theme="dark"] .teaser-chips span{background:rgba(207,219,237,.06);color:#CFDBED;}
+:root[data-theme="dark"] .tp-card{background:rgba(76,97,120,.28);border-color:var(--line);}
+:root[data-theme="dark"] .tp-veil{background:linear-gradient(180deg,rgba(15,26,38,.4),rgba(15,26,38,.9));}
+:root[data-theme="dark"] .tp-veil b{background:linear-gradient(120deg,#F5B94A,#FFD483);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+@media(max-width:760px){.teaser-preview{grid-template-columns:1fr;}}
+
+
+/* ============ 媒體中心 ============ */
+.mediahub{background:var(--glass-strong);border:1px solid var(--glass-b);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:22px;margin-top:8px;}
+.mh-weeks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.mh-wk{width:48px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--bg-soft);font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ink-soft);cursor:pointer;transition:.22s var(--ease);position:relative;}
+.mh-wk:hover{border-color:var(--blue);color:var(--ink);transform:translateY(-2px);}
+.mh-wk.on{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;box-shadow:0 8px 18px -8px rgba(10,108,255,.5);}
+.mh-wk.done::after{content:'';position:absolute;top:5px;right:5px;width:5px;height:5px;border-radius:50%;background:#12b56a;}
+.mh-wk.live::after{content:'';position:absolute;top:5px;right:5px;width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 1.4s infinite;}
+.mh-wk.soon{opacity:.5;}
+.mh-tabbar{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:16px;}
+.mh-tab{padding:10px 15px;border:none;background:none;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--ink-faint);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.2s;}
+.mh-tab span{margin-right:5px;font-size:12px;}
+.mh-tab:hover{color:var(--ink-soft);}
+.mh-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.mh-sub{display:none;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.mh-day{padding:8px 15px;border-radius:100px;border:1px solid var(--line);background:var(--bg-soft);font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--ink-soft);cursor:pointer;transition:.2s;}
+.mh-day:hover{border-color:var(--blue);color:var(--ink);}
+.mh-day.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+.mh-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.mh-video,.mh-frame{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0F1A26;}
+.mh-video iframe,.mh-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.mh-foot{margin-top:12px;}
+.mh-soon{aspect-ratio:16/6;min-height:200px;border-radius:14px;background:linear-gradient(135deg,#0F1A26,#1F2E42);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#CFDBED;text-align:center;padding:24px;}
+.mh-soon svg{width:44px;height:44px;stroke:#8FB4E8;}
+.mh-soon b{font-family:var(--font-display);font-size:16px;color:#fff;}
+.mh-soon span{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:#8FB4E8;}
+:root[data-theme="dark"] .mediahub{background:var(--glass-strong)!important;border-color:var(--glass-border)!important;}
+:root[data-theme="dark"] .mh-wk{background:rgba(207,219,237,.06);color:#CFDBED;border-color:var(--line);}
+:root[data-theme="dark"] .mh-wk.on{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+:root[data-theme="dark"] .mh-tab.active{color:#F5B94A;border-bottom-color:#F5B94A;}
+:root[data-theme="dark"] .mh-day{background:rgba(207,219,237,.06);color:#CFDBED;border-color:var(--line);}
+:root[data-theme="dark"] .mh-day.on{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;border-color:transparent;}
+:root[data-theme="dark"] .mh-title{color:#E8EEF8;}
+
+/* 週卡可點擊 */
+.wk-cell.clickable{cursor:pointer;}
+.wk-cell.clickable:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);border-color:var(--accent);}
+.wk-media-hint{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--font-mono);font-size:11.5px;font-weight:700;color:var(--blue);}
+.wk-media-hint b{transition:transform .25s var(--ease);}
+.wk-cell.clickable:hover .wk-media-hint b{transform:translateX(4px);}
+:root[data-theme="dark"] .wk-media-hint{color:#F5B94A;}
+
+:root[data-theme="dark"] .reward-max{background:linear-gradient(135deg,#F5B94A,#E39B2A);box-shadow:0 20px 44px -20px rgba(245,185,74,.5);}
+:root[data-theme="dark"] .reward-max .rmax-label,:root[data-theme="dark"] .reward-max .rmax-label small,:root[data-theme="dark"] .reward-max .rmax-amt{color:#0F1A26;}
+:root[data-theme="dark"] .reward-cond svg{stroke:#F5B94A;}
 </style>
 </head>
 <body>
@@ -1450,7 +1580,7 @@ body{background:
         <div><b data-count="240">0</b><span>學習時數 Hours</span></div>
         <div><b data-count="21">0</b><span>培育學員 Students</span></div>
         <div><b data-count="8">0</b><span>學習週次 Weeks</span></div>
-        <div><b data-count="20">0</b><span>企業專題 Projects</span></div>
+        <div><b data-count="6">0</b><span>企業專題 Projects</span></div>
       </div>
     </div>
 
@@ -1576,7 +1706,7 @@ body{background:
         <div class="h-body"><span class="tag-pill">AI Agent</span><h4>倉儲管理系統 AI 助手</h4><p>結合大語言模型的自然語言查詢介面。</p></div>
       </div>
     </div>
-    <a href="#projects" class="btn-arrow" data-reveal>查看全部 20 組專題 <span>→</span></a>
+    <a href="#projects" class="btn-arrow" data-reveal>查看全部 6 組專題 <span>→</span></a>
   </div>
 </section>
 
@@ -1728,21 +1858,41 @@ body{background:
       <p>從學習獎勵金到 Demo Day 就業媒合，這門課把「學會」一路接到「就業」。</p>
     </div>
 
-    <div class="reward-grid" data-reveal>
+    <div class="reward-row" data-reveal>
       <div class="reward-card glass">
-        <span class="reward-stage">STAGE 1</span>
+        <span class="reward-stage">STAGE 1 · 完訓獎勵</span>
         <b class="reward-amt">NT$ 20,000</b>
-        <p>出席率達 90% 以上，且後測成績達 80 分以上。</p>
+        <div class="reward-conds">
+          <div class="reward-cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="rc-check" d="M5 12l4 4 10-10"/></svg>出席率達 90% 以上</div>
+          <div class="reward-cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="rc-check" d="M5 12l4 4 10-10"/></svg>後測成績達 80 分以上</div>
+        </div>
       </div>
-      <div class="reward-plus">+</div>
+
+      <div class="reward-op" aria-hidden="true">+</div>
+
       <div class="reward-card glass">
-        <span class="reward-stage">STAGE 2</span>
+        <span class="reward-stage">STAGE 2 · 專題獎勵</span>
         <b class="reward-amt">NT$ 30,000</b>
-        <p>出席率達 90% 以上，且企業專題成果發表通過。</p>
+        <div class="reward-conds">
+          <div class="reward-cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="rc-check" d="M5 12l4 4 10-10"/></svg>出席率達 90% 以上</div>
+          <div class="reward-cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path class="rc-check" d="M5 12l4 4 10-10"/></svg>企業專題成果發表通過</div>
+        </div>
       </div>
-      <div class="reward-total glass">
-        <span>每人最高學習獎勵金</span>
-        <b>NT$ 50,000</b>
+
+      <div class="reward-op" aria-hidden="true">=</div>
+
+      <div class="reward-max">
+        <svg class="rmax-fx" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><radialGradient id="rmaxG" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity=".28"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+          <circle cx="150" cy="55" r="70" fill="url(#rmaxG)"/>
+          <g class="rmax-ring"><circle cx="150" cy="55" r="40" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1" stroke-dasharray="3 8"/></g>
+          <g class="rmax-ring2"><circle cx="46" cy="150" r="30" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1"/></g>
+          <circle class="rmax-spark s1" cx="40" cy="40" r="2.5" fill="#fff"/>
+          <circle class="rmax-spark s2" cx="175" cy="120" r="2" fill="#fff"/>
+          <circle class="rmax-spark s3" cx="95" cy="30" r="1.6" fill="#fff"/>
+        </svg>
+        <span class="rmax-label">MAXIMUM<small>每人最高學習獎勵金</small></span>
+        <b class="rmax-amt">NT$ 50,000</b>
       </div>
     </div>
 
@@ -1878,75 +2028,21 @@ body{background:
     <div class="bento" id="phase2" data-reveal></div>
 
   
-    <!-- ============ W1 媒體區（錄影 / 每日相簿 / 分組簡報，供週次卡導覽）============ -->
-    <div id="wkmedia-W1-replay" class="wk-media-target" data-reveal>
-      <div class="bento-intro" style="margin-top:56px">
-        <div class="eyebrow">W1 · Course Replay</div>
-        <h2>第一週 · 課程錄影回放。</h2>
-        <p>播放清單收錄八週每日錄影，隨進度持續新增；在下方播放器直接切換即可。</p>
-      </div>
-      <div class="bento">
-        <div class="cell c6 glass replay">
-          <div class="replay-head">
-            <div>
-              <span class="rec-eyebrow">Playlist · 八週每日錄影</span>
-              <h3>青年 AI 實戰養成班 · 智慧物流班 課程錄影</h3>
-            </div>
-            <a class="wk-link" href="https://www.youtube.com/playlist?list=PLPDYDW5Y5pg8" target="_blank" rel="noopener">在 YouTube 開啟完整清單 <span class="ar">→</span></a>
-          </div>
-          <div class="replay-frame">
-            <iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?si=9UnlA62yCffcmFMp&amp;list=PLPDYDW5Y5pg8" title="課程錄影回放播放清單" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
+    <!-- ============ 媒體中心：Week + Day 選擇，內容連動 ============ -->
+    <div class="bento-intro" style="margin-top:64px" data-reveal>
+      <div class="eyebrow">Media Hub · 課程媒體</div>
+      <h2>回顧影片、現場照片、分組簡報。</h2>
+      <p>選擇週次即可切換該週媒體；也可以直接點上方任一張週次卡跳到這裡。回顧影片為每兩週一支。</p>
     </div>
-
-    <div id="wkmedia-W1-album" class="wk-media-target" data-reveal>
-      <div class="bento-intro" style="margin-top:56px">
-        <div class="eyebrow">W1 · Behind the Scenes</div>
-        <h2>第一週 · 每日現場照片。</h2>
-        <p>點上方日期，瀏覽當天的現場花絮。</p>
+    <div class="mediahub" id="mediaHub" data-reveal>
+      <div class="mh-weeks" id="mhWeeks"></div>
+      <div class="mh-tabbar">
+        <button class="mh-tab active" data-tab="reel"><span>▶</span>回顧影片</button>
+        <button class="mh-tab" data-tab="album"><span>▦</span>現場照片</button>
+        <button class="mh-tab" data-tab="decks"><span>▤</span>分組簡報</button>
       </div>
-      <div class="dayalbum">
-        <div class="da-tabs" id="daTabs">
-          <button class="da-tab active" data-src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid">開訓</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO#grid">Day 1</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM#grid">Day 2</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt#grid">Day 3</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER#grid">Day 4</button>
-          <button class="da-tab" data-src="https://drive.google.com/embeddedfolderview?id=1tlBjW8Krczql64GURWW4E13AYfi5SA2X#grid">Day 5</button>
-        </div>
-        <div class="da-frame"><iframe id="daFrame" src="https://drive.google.com/embeddedfolderview?id=1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28#grid" loading="lazy" allowfullscreen title="每日現場照片"></iframe></div>
-        <div class="da-foot">
-          <a class="da-btn" href="https://drive.google.com/drive/folders/1uUUTvPaWhnR-ru21nhFjLoRbo_0_cY28" target="_blank" rel="noopener">開啟完整相簿 →</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="wkmedia-W1-decks" class="wk-media-target" data-reveal>
-      <div class="bento-intro" style="margin-top:56px">
-        <div class="eyebrow">W1 · Day 5 Showcase</div>
-        <h2>第一週 · 各組成果簡報。</h2>
-      </div>
-      <div class="bento">
-        <div class="cell c6 glass">
-          <span class="rec-eyebrow">W1 · Day 5 分組簡報</span>
-          <div class="wres-block">
-            <div class="wres-head">
-              <div class="wres-tabs">
-                <button class="wres-tab active" data-src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000">第一組</button>
-                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000">第二組</button>
-                <button class="wres-tab" data-src="https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/preview">第三組</button>
-                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1DD71A9q3eh7d0dsKFZiq7DWo_AqfFubB/embed?start=false&loop=false&delayms=3000">第四組</button>
-                <button class="wres-tab" data-src="https://docs.google.com/presentation/d/1hvgIDhwGT49hArLGYSQyxZ1HJiwkAHNH/embed?start=false&loop=false&delayms=3000">第五組</button>
-                <button class="wres-tab" data-src="https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview">第六組</button>
-                <button class="wres-tab" data-src="https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview">第七組</button>
-              </div>
-            </div>
-            <div class="wres-frame"><iframe src="https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000" loading="lazy" allowfullscreen></iframe></div>
-          </div>
-        </div>
-      </div>
+      <div class="mh-sub" id="mhSub"></div>
+      <div class="mh-body" id="mhBody"></div>
     </div>
 
   </div>
@@ -1958,10 +2054,10 @@ body{background:
   <div class="hero-split-grid">
     <div data-reveal>
       <div class="eyebrow">Project Showcase · W5–W8 企業真題</div>
-      <h1>8 組企業真題，<br>核心亮點是<br>Shadow Mode。</h1>
+      <h1>企業真題成果，<br><span class="grad">敬請期待</span>。</h1>
     </div>
     <div data-reveal>
-      <p>W5–W8 進入企業真題實戰，各組把真實出題做成能上線的物流 MVP；本屆技術亮點是「Shadow Mode 數位孿生模擬」，每一組都連向完整介紹頁、GitHub 與 Demo 影片。</p>
+      <p>W5–W8 各組將把企業真實出題做成能上線的物流 MVP。本屆已鎖定的技術亮點包含 Shadow Mode 數位孿生模擬；完整成果將於 Demo Day 後於此區塊揭曉——每組會有介紹頁、GitHub 與 Demo 影片。</p>
     </div>
   </div>
 </header>
@@ -1969,60 +2065,23 @@ body{background:
 <section class="section mesh" style="padding-top:20px">
   <div class="wrap">
     <div class="bento" data-reveal>
-      <!-- 旗艦：Shadow Mode 數位孿生 -->
-      <div class="cell c4 r2 glass feat">
-        <span class="ribbon">核心技術亮點 · TECH SPOTLIGHT</span>
-        <div class="twin">
-          <div class="floor"></div>
-          <svg viewBox="0 0 400 160" preserveAspectRatio="none">
-            <defs><linearGradient id="twinGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A6CFF"/><stop offset="100%" stop-color="#1FCFCF"/></linearGradient></defs>
-            <path class="tw-route" d="M40,120 C120,60 180,150 240,90 S340,60 370,110"/>
-            <circle class="tw-dot" r="5"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto" path="M40,120 C120,60 180,150 240,90 S340,60 370,110"/></circle>
-          </svg>
-          <span class="tw-label"><i></i>SIMULATING · what-if</span>
+      <div class="teaser-wrap" data-reveal>
+      <div class="teaser-card glass">
+        <span class="ribbon">COMING SOON</span>
+        <h3>企業真題 · 5 大主題方向</h3>
+        <p>學員將於 W5–W8 分組認領企業出題，方向包含智慧倉儲、路徑優化、AI 助手、控制塔整合、數位孿生模擬。Demo Day 後，每一組的完整專題頁、程式碼、Demo 影片、實測數據都會在這裡揭曉。</p>
+        <div class="teaser-chips">
+          <span>Warehouse AI</span><span>Route VRP</span><span>AI Agent</span><span>Control Tower</span><span>Shadow Mode</span>
         </div>
-        <span class="tag-pill">Digital Twin · Simulation</span>
-        <h3>Shadow Mode｜數位孿生模擬</h3>
-        <p>為倉儲場域建立一個「影子分身」：在虛擬環境中重播真實動線，讓每一次流程調整都先在數位世界驗證 ROI，再落地現場。支援 what-if 情境模擬、瓶頸熱區偵測，與人力／設備配置最佳化。</p>
-        <div class="feat-tags"><span>What-if 情境</span><span>瓶頸熱區</span><span>ROI 預演</span><span>動線最佳化</span></div>
-        <div class="h-links"><a href="#">介紹頁 →</a><a href="#">GitHub →</a><a href="#">Demo 影片 →</a></div>
+        <div class="teaser-preview" aria-hidden="true">
+          <div class="tp-card"><span class="tp-tag">Project 01</span><div class="tp-line"></div><div class="tp-line short"></div></div>
+          <div class="tp-card"><span class="tp-tag">Project 02</span><div class="tp-line"></div><div class="tp-line short"></div></div>
+          <div class="tp-card"><span class="tp-tag">Project 03</span><div class="tp-line"></div><div class="tp-line short"></div></div>
+          <div class="tp-veil"><b>敬請期待</b><span>Stay tuned · Demo Day 揭曉</span></div>
+        </div>
       </div>
-
-      <!-- 一般專題 -->
-      <div class="cell glass proj">
-        <span class="tag-pill">Warehouse AI</span>
-        <h4>智慧倉儲即時儀表板</h4>
-        <p>整合庫存、出貨與異常警示的即時監控，協助倉管快速決策。</p>
-        <div class="h-links"><a href="#">介紹 →</a><a href="#">GitHub →</a></div>
-      </div>
-      <div class="cell glass proj">
-        <span class="tag-pill">Optimization</span>
-        <h4>配送路徑優化 VRP</h4>
-        <p>以演化演算法求解車輛路徑問題，實測降低配送里程與時間。</p>
-        <div class="h-links"><a href="#">介紹 →</a><a href="#">GitHub →</a></div>
-      </div>
-      <div class="cell glass proj">
-        <span class="tag-pill">AI Agent</span>
-        <h4>倉儲管理 AI 助手</h4>
-        <p>結合大語言模型的自然語言查詢，讓現場以口語操作 WMS。</p>
-        <div class="h-links"><a href="#">介紹 →</a><a href="#">GitHub →</a></div>
-      </div>
-
-      <div class="cell glass proj">
-        <span class="tag-pill">Control Tower</span>
-        <h4>物流控制塔整合平台</h4>
-        <p>彙整多倉、多線路資訊於單一介面，提供跨場域營運總覽與告警。</p>
-        <div class="h-links"><a href="#">介紹 →</a><a href="#">GitHub →</a><a href="#">Demo →</a></div>
-      </div>
-      <div class="cell glass proj">
-        <span class="tag-pill">Computer Vision</span>
-        <h4>貨物分類影像辨識</h4>
-        <p>以電腦視覺自動辨識貨物類別，減少人工分類作業時間與錯誤。</p>
-        <div class="h-links"><a href="#">介紹 →</a><a href="#">GitHub →</a><a href="#">Demo →</a></div>
-      </div>
-
     </div>
-  </div>
+    </div>
 </section>
 </section>
 
@@ -2299,6 +2358,13 @@ document.querySelectorAll('.wres-block').forEach(block=>{
 // 狀態：done 已完成 / live 進行中 / scheduled 即將開放 / locked 未解鎖
 const JOURNEY = [
   {wk:'W1',role:'資料驅動師',en:'Data-Driven Analyst',phase:'learn',status:'done',date:'2026/06/29',
+   dayAlbums:[
+    {d:'D1',t:'啟動日 · VMDA',url:'https://drive.google.com/drive/folders/1bNdk9D3L6xz8uf66qwS41psdQmZd6kfO'},
+    {d:'D2',t:'資料清洗 · Pandas',url:'https://drive.google.com/drive/folders/1AmTSzL8DKWUpBb8rNMYFS5epiT5OlRSM'},
+    {d:'D3',t:'儀表板 · Streamlit',url:'https://drive.google.com/drive/folders/1ydtyvuoL6HIBig0dLt7CXngHdvdmavDt'},
+    {d:'D4',t:'RFM 客戶分群',url:'https://drive.google.com/drive/folders/1XbanP6oIAORsf_ePT0afZZ7aMs1pRnER'},
+    {d:'D5',t:'BOSS I · 成果發表',url:'https://drive.google.com/drive/folders/1tlBjW8Krczql64GURWW4E13AYfi5SA2X'}
+   ],
    focus:'啟動日 · 清洗 · 儀表板 · RFM',boss:'BOSS I · 數據體檢報告',url:'https://learn.ctone.com.tw/W1/',
    days:['啟動日 · VMDA 思維','資料清洗 · Pandas','儀表板 · Streamlit','RFM 客戶分群','BOSS I · 數據體檢報告'],
    replay:'https://www.youtube.com/embed/videoseries?si=9UnlA62yCffcmFMp&list=PLPDYDW5Y5pg8',
@@ -2315,7 +2381,14 @@ const JOURNEY = [
    ]},
   {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'live',date:'2026/07/06',
    focus:'五元組治理 · 主資料 · KRI/KPI',boss:'BOSS II · 物流控制塔 Alpha',url:'https://learn.ctone.com.tw/W2/',
-   days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔']},
+   days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔'],
+   dayAlbums:[
+    {d:'D6',t:'WMS 倉儲管理',url:'https://drive.google.com/drive/folders/1-C_vg3xo5lWtzTnEGCgAPXN75mS6VSte'},
+    {d:'D7',t:'TMS 運輸監控',url:'https://drive.google.com/drive/folders/1YPWyDG_HmKo-vxR6qjPg1-GiDRDqRkQ3'},
+    {d:'D8',t:'供應商評估',url:'https://drive.google.com/drive/folders/1a-K0UBtBSyflAFzOhDnGTw_XazyP-FJr'},
+    {d:'D9',t:'決策支援',url:'https://drive.google.com/drive/folders/1521yn98RV09yhOlrUP_q59popWbcWndI'},
+    {d:'D10',t:'BOSS II · 物流控制塔',url:'https://drive.google.com/drive/folders/19HFu-jbqBu9rwos_IalPZJxq6y1GaOTP'}
+   ]},
   {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'scheduled',date:'2026/07/13',
    focus:'算命師 · 促銷策劃 · 分群 · 推薦',boss:'BOSS III · 精準行銷引擎',
    days:['客戶流失預測','銷量預測','促銷策劃 · Apriori','分群升級 · 推薦引擎','BOSS III · 精準行銷引擎'],
@@ -2352,17 +2425,17 @@ function jCard(w){
   const ds=(parseInt(w.wk.slice(1),10)-1)*5+1;
   const daysHtml=(w.days||[]).map((d,i)=>'<li><b>D'+(ds+i)+'</b><span>'+d+'</span></li>').join('');
   let tail;
-  const media = wkMedia(w);
   if(open){
-    tail=`<span class="boss-chip">${w.boss}</span>`+media+
-      (w.url?`<a class="wk-link" href="${w.url}" target="_blank" rel="noopener">查看課程講義 <span class="ar">→</span></a>`:'');
+    tail=`<span class="boss-chip">${w.boss}</span>`+
+      (w.url?`<a class="wk-link" href="${w.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">查看課程講義 <span class="ar">→</span></a>`:'')+
+      `<span class="wk-media-hint">回顧影片 · 現場照片 · 分組簡報 <b>→</b></span>`;
   }else{
     const items=(w.deliv||['Day5 分組簡報','Demo 影片','課堂照片','學員心得']).map(d=>`<li><span class="box"></span>${d}</li>`).join('');
     const eta=(w.status==='scheduled'?'Coming Soon':'Locked');
     tail=`<div class="deliv"><b>Expected Deliverables · 預計交付</b><ul>${items}</ul></div>`+
       `<div class="wk-eta">\u25F7 ${eta} · 預計 ${w.date} 更新</div>`;
   }
-  return `<div class="cell c3 glass wk-cell ${s.cls}" id="wk-${w.wk}" style="--accent:${jAccent(w)}">
+  return `<div class="cell c3 glass wk-cell clickable ${s.cls}" id="wk-${w.wk}" data-wk="${w.wk}" style="--accent:${jAccent(w)}">
       <span class="status-chip ${s.chip}">${s.pre?`<span class="ic">${s.pre.trim()}</span>`:'<span class="ic"></span>'}${s.label}</span>
       <div class="wk-top"><span class="wk-no">WEEK ${num} / 08</span><span class="phase"><i></i>${w.phase==='project'?'企業真題':'學習'}</span></div>
       <h3>${w.role}</h3><div class="role-en">${w.en}</div>
@@ -2372,7 +2445,7 @@ function jCard(w){
     </div>`;
 }
 function wkMedia(w){
-  const hasReplay=!!w.replay, hasAlbum=!!(w.album||w.albumHref), hasDecks=!!(w.decks&&w.decks.length);
+  const hasReplay=!!(w.replay||w.highlightSoon), hasAlbum=!!(w.dayAlbums&&w.dayAlbums.length)||!!(w.album||w.albumHref), hasDecks=!!(w.decks&&w.decks.length);
   const btn=(on,ic,lb,attr)=> on
     ? `<button class="wk-media-btn" ${attr}><span class="wm-ic">${ic}</span><span class="wm-lb">${lb}</span></button>`
     : `<span class="wk-media-btn locked" title="尚未開放"><span class="wm-ic">${ic}</span><span class="wm-lb">${lb} · 尚未開放</span></span>`;
@@ -2380,10 +2453,35 @@ function wkMedia(w){
   const iconPic='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M4 20l6-6 4 4 3-3 6 6"/></svg>';
   const iconSlide='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>';
   return `<div class="wk-media">
-    ${btn(hasReplay,iconVid,'錄影',`data-media="replay" data-wk="${w.wk}"`)}
-    ${btn(hasAlbum,iconPic,'照片',`data-media="album" data-wk="${w.wk}"`)}
-    ${btn(hasDecks,iconSlide,'簡報',`data-media="decks" data-wk="${w.wk}"`)}
+    ${btn(hasReplay,iconVid,'錄影',`data-drop="replay" data-wk="${w.wk}"`)}
+    ${btn(hasAlbum,iconPic,'照片',`data-drop="album" data-wk="${w.wk}"`)}
+    ${btn(hasDecks,iconSlide,'簡報',`data-drop="decks" data-wk="${w.wk}"`)}
   </div>`;
+}
+function wkDropPanel(w){
+  return `<div class="wk-drop" id="wkdrop-${w.wk}" aria-hidden="true"><div class="wkd-inner"></div></div>`;
+}
+function renderDrop(w, kind){
+  if(kind==='album' && w.dayAlbums){
+    const items = w.dayAlbums.map(a=>`
+      <a class="wkd-day" href="${a.url}" target="_blank" rel="noopener">
+        <span class="wkd-day-tag">${a.d}</span>
+        <span class="wkd-day-t">${a.t}</span>
+        <span class="wkd-day-cta">開啟相簿 <i>→</i></span>
+      </a>`).join('');
+    return `<div class="wkd-head"><b>${w.wk} · 每日現場照片</b><small>點擊各日開啟 Google Drive 相簿</small></div><div class="wkd-days">${items}</div>`;
+  }
+  if(kind==='replay'){
+    return `<div class="wkd-head"><b>${w.wk} · 精采回顧影片</b><small>剪輯自每日課程精華 · 影片準備中</small></div>
+      <div class="wkd-video-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><b>敬請期待</b><span>Highlight reel coming soon</span></div>`;
+  }
+  if(kind==='decks' && w.decks){
+    const tabs=w.decks.map((d,i)=>`<button class="wkd-tab${i===0?' active':''}" data-src="${d.src}">${d.n}</button>`).join('');
+    return `<div class="wkd-head"><b>${w.wk} · Day 5 分組簡報</b><small>切換組別瀏覽</small></div>
+      <div class="wkd-tabs">${tabs}</div>
+      <div class="wkd-frame"><iframe src="${w.decks[0].src}" loading="lazy" allowfullscreen></iframe></div>`;
+  }
+  return '';
 }
 (function renderJourney(){
   const p1=document.getElementById('phase1'), p2=document.getElementById('phase2'), rail=document.getElementById('deliveryRail');
@@ -2401,14 +2499,68 @@ function wkMedia(w){
   rail.querySelectorAll('.rail-node').forEach(n=>n.addEventListener('click',()=>{
     const el=document.getElementById(n.dataset.go); if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
   }));
-  document.querySelectorAll('.wk-media-btn[data-media]').forEach(b=>b.addEventListener('click',e=>{
-    e.preventDefault(); e.stopPropagation();
-    const wk=b.dataset.wk, kind=b.dataset.media;
-    const targetId='wkmedia-'+wk+'-'+kind;
-    const el=document.getElementById(targetId);
-    if(el){ el.scrollIntoView({behavior:'smooth',block:'start'});
-      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+  document.querySelectorAll('.wk-cell.clickable').forEach(c=>c.addEventListener('click',e=>{
+    if(e.target.closest('a')) return;
+    const wk=c.dataset.wk;
+    if(window.__selectHubWeek) window.__selectHubWeek(wk);
   }));
+})();
+
+// ============ 媒體中心邏輯 ============
+const REELS = {
+  'W1\u2013W2':'https://www.youtube.com/embed/ZTpvM_jGjCE?si=KIKmnQg7lIxA-UNA'
+  // 之後每兩週一支：'W3\u2013W4':'...embed 網址...'
+};
+function pairOf(wk){ var n=+wk.slice(1); var lo=Math.floor((n-1)/2)*2+1; return 'W'+lo+'\u2013W'+(lo+1); }
+(function mediaHub(){
+  const hub=document.getElementById('mediaHub'); if(!hub) return;
+  const weeksEl=document.getElementById('mhWeeks'), subEl=document.getElementById('mhSub'), bodyEl=document.getElementById('mhBody');
+  const tabs=hub.querySelectorAll('.mh-tab');
+  let curWk='W1', curTab='reel', curDayIdx=0;
+  function folderId(u){ var m=(u||'').match(/folders\/([\w-]+)/); return m?m[1]:''; }
+  weeksEl.innerHTML=JOURNEY.map(function(w){
+    var st=w.status==='done'?'done':(w.status==='live'?'live':'soon');
+    return '<button class="mh-wk '+st+'" data-wk="'+w.wk+'">'+w.wk+'</button>';
+  }).join('');
+  function soon(txt){ return '<div class="mh-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>'+txt+'</b><span>Coming soon</span></div>'; }
+  function render(){
+    var w=JOURNEY.find(function(x){return x.wk===curWk;});
+    weeksEl.querySelectorAll('.mh-wk').forEach(function(b){b.classList.toggle('on',b.dataset.wk===curWk);});
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===curTab);});
+    subEl.style.display='none'; subEl.innerHTML='';
+    if(curTab==='reel'){
+      var src=REELS[pairOf(w.wk)];
+      bodyEl.innerHTML = src
+        ? '<div class="mh-title">'+pairOf(w.wk)+' 精采回顧</div><div class="mh-video"><iframe src="'+src+'" title="精采回顧影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
+        : soon(pairOf(w.wk)+' 精采回顧影片準備中');
+    } else if(curTab==='album'){
+      if(w.dayAlbums&&w.dayAlbums.length){
+        if(curDayIdx>=w.dayAlbums.length) curDayIdx=0;
+        subEl.style.display='flex';
+        subEl.innerHTML=w.dayAlbums.map(function(a,i){return '<button class="mh-day '+(i===curDayIdx?'on':'')+'" data-i="'+i+'">'+a.d+'</button>';}).join('');
+        var a=w.dayAlbums[curDayIdx];
+        bodyEl.innerHTML='<div class="mh-title">'+a.d+' \u00b7 '+a.t+'</div><div class="mh-frame"><iframe src="https://drive.google.com/embeddedfolderview?id='+folderId(a.url)+'#grid" loading="lazy" title="現場照片"></iframe></div><div class="mh-foot"><a class="da-btn" href="'+a.url+'" target="_blank" rel="noopener">在 Drive 開啟本日相簿 →</a></div>';
+      } else bodyEl.innerHTML=soon(w.wk+' 現場照片整理中');
+    } else if(curTab==='decks'){
+      if(w.decks&&w.decks.length){
+        subEl.style.display='flex';
+        subEl.innerHTML=w.decks.map(function(d,i){return '<button class="mh-day '+(i===0?'on':'')+'" data-src="'+d.src+'">'+d.n+'</button>';}).join('');
+        bodyEl.innerHTML='<div class="mh-title">'+w.wk+' \u00b7 Day 5 分組簡報</div><div class="mh-frame"><iframe id="mhDeckFrame" src="'+w.decks[0].src+'" loading="lazy" allowfullscreen></iframe></div>';
+      } else bodyEl.innerHTML=soon(w.wk+' 分組簡報準備中');
+    }
+  }
+  weeksEl.addEventListener('click',function(e){var b=e.target.closest('.mh-wk'); if(!b)return; curWk=b.dataset.wk; curDayIdx=0; render();});
+  tabs.forEach(function(t){t.addEventListener('click',function(){curTab=t.dataset.tab; curDayIdx=0; render();});});
+  subEl.addEventListener('click',function(e){var b=e.target.closest('.mh-day'); if(!b)return;
+    if(curTab==='album'){curDayIdx=+b.dataset.i; render();}
+    else if(curTab==='decks'){subEl.querySelectorAll('.mh-day').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); var fr=document.getElementById('mhDeckFrame'); if(fr) fr.src=b.dataset.src;}
+  });
+  render();
+  window.__selectHubWeek=function(wk){ curWk=wk; curDayIdx=0;
+    // 若該週有照片預設切到照片，否則回顧影片
+    var w=JOURNEY.find(function(x){return x.wk===wk;});
+    render(); hub.scrollIntoView({behavior:'smooth',block:'start'});
+  };
 })();
 
 function openWkModal(w, kind){
