@@ -1514,6 +1514,90 @@ body{background:
   .magnetic{transition:none !important;}
 }
 
+
+/* ===== 精選作品：客製 SVG 場景（取代圖庫照）===== */
+.hviz{position:relative;height:230px;overflow:hidden;
+  background:linear-gradient(150deg,#EAF2FF 0%,#DCEBFA 55%,#D6F2F4 100%);}
+.hviz svg{position:absolute;inset:0;width:100%;height:100%;}
+.h-card:hover .hviz svg{transform:scale(1.03);}
+.hviz svg{transition:transform 1.2s cubic-bezier(.2,.7,.2,1);}
+
+/* 倉儲 */
+.hviz-wh .wh-racks rect{fill:none;stroke:rgba(10,108,255,.28);stroke-width:1.6;}
+.hviz-wh .wh-boxes .wb{fill:rgba(10,108,255,.5);}
+.hviz-wh .wb.b2{fill:rgba(31,207,207,.55);}.hviz-wh .wb.b3{fill:rgba(10,108,255,.32);}
+.hviz-wh .wb.b4{fill:rgba(31,207,207,.4);}.hviz-wh .wb.b5{fill:rgba(10,108,255,.42);}
+.hviz-wh .wb.b6{fill:rgba(31,207,207,.48);}
+.hviz-wh .wh-floor{stroke:rgba(10,108,255,.22);stroke-width:1.4;}
+.hviz-wh .wh-scan{stroke:#1FCFCF;stroke-width:2;opacity:.85;filter:drop-shadow(0 0 6px rgba(31,207,207,.9));animation:whscan 4.5s ease-in-out infinite;}
+@keyframes whscan{0%{transform:translateY(44px);opacity:0;}12%{opacity:.9;}88%{opacity:.9;}100%{transform:translateY(180px);opacity:0;}}
+.hviz-wh .wh-det rect{fill:none;stroke:#1FCFCF;stroke-width:1.6;opacity:0;}
+.hviz-wh .wh-det text{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;fill:#1FCFCF;opacity:0;}
+.h-card:hover .hviz-wh .wh-det rect,.h-card:hover .hviz-wh .wh-det text{opacity:1;transition:opacity .4s .1s;}
+
+/* 路徑 */
+.hviz-rt .rt-grid line{stroke:rgba(10,108,255,.10);stroke-width:1;}
+.hviz-rt .rt-ghost{fill:none;stroke:rgba(11,27,51,.14);stroke-width:1.4;stroke-dasharray:4 5;}
+.hviz-rt .rt-main{fill:none;stroke:#0A6CFF;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:460;stroke-dashoffset:460;animation:rtdraw 5s ease-in-out infinite;}
+@keyframes rtdraw{0%{stroke-dashoffset:460;}45%,72%{stroke-dashoffset:0;}100%{stroke-dashoffset:-460;}}
+.hviz-rt .rt-stops circle{fill:#0A6CFF;}
+.hviz-rt .rt-hub{fill:#1FCFCF;}
+.hviz-rt .rt-ping{fill:none;stroke:#1FCFCF;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:rtping 2.6s ease-out infinite;}
+@keyframes rtping{0%{transform:scale(.6);opacity:.9;}75%{transform:scale(3);opacity:0;}100%{opacity:0;}}
+.hviz-rt .rt-truck rect:first-child{fill:#0A6CFF;}
+.hviz-rt .rt-truck rect:last-child{fill:rgba(255,255,255,.75);}
+.hviz-rt .rt-truck{filter:drop-shadow(0 3px 6px rgba(10,60,140,.3));}
+
+/* AI 助手 */
+.hviz-ag .ag-msg rect:first-child{fill:rgba(255,255,255,.85);stroke:rgba(10,108,255,.18);stroke-width:1;}
+.hviz-ag .ag-msg.m2 rect:first-child{fill:rgba(10,108,255,.14);stroke:rgba(10,108,255,.3);}
+.hviz-ag .ag-msg .ln{fill:rgba(10,108,255,.4);}
+.hviz-ag .ag-msg.m2 .ln{fill:rgba(10,108,255,.6);}
+.hviz-ag .ag-msg{opacity:0;animation:agIn .7s ease forwards;}
+.hviz-ag .ag-msg.m1{animation-delay:.15s;}
+.hviz-ag .ag-msg.m2{animation-delay:.75s;}
+.hviz-ag .ag-msg.m3{animation-delay:1.4s;}
+@keyframes agIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.hviz-ag .ag-dot{fill:#1FCFCF;}
+.hviz-ag .ag-ring{fill:none;stroke:#1FCFCF;stroke-width:1.4;transform-box:fill-box;transform-origin:center;}
+.hviz-ag .ag-ring.r1{animation:agpulse 3s ease-out infinite;}
+.hviz-ag .ag-ring.r2{stroke-dasharray:3 6;animation:agspin 12s linear infinite;opacity:.55;}
+@keyframes agpulse{0%{transform:scale(.75);opacity:.85;}75%{transform:scale(1.9);opacity:0;}100%{opacity:0;}}
+@keyframes agspin{to{transform:rotate(360deg);}}
+.hviz-ag .sp{fill:#0A6CFF;animation:agtw 2.6s ease-in-out infinite;}
+.hviz-ag .sp.s2{animation-delay:.8s;}.hviz-ag .sp.s3{animation-delay:1.6s;}
+@keyframes agtw{0%,100%{opacity:.15;}50%{opacity:.85;}}
+
+/* 深色 */
+:root[data-theme="dark"] .hviz{background:linear-gradient(150deg,#16273D 0%,#1B2E48 55%,#16303A 100%);}
+:root[data-theme="dark"] .hviz-wh .wh-racks rect{stroke:rgba(143,180,232,.3);}
+:root[data-theme="dark"] .hviz-wh .wh-boxes .wb{fill:rgba(143,180,232,.5);}
+:root[data-theme="dark"] .hviz-wh .wb.b2,:root[data-theme="dark"] .hviz-wh .wb.b4,:root[data-theme="dark"] .hviz-wh .wb.b6{fill:rgba(245,185,74,.62);}
+:root[data-theme="dark"] .hviz-wh .wh-scan{stroke:#F5B94A;filter:drop-shadow(0 0 6px rgba(245,185,74,.9));}
+:root[data-theme="dark"] .hviz-wh .wh-det rect{stroke:#F5B94A;}
+:root[data-theme="dark"] .hviz-wh .wh-det text{fill:#F5B94A;}
+:root[data-theme="dark"] .hviz-wh .wh-floor{stroke:rgba(143,180,232,.24);}
+:root[data-theme="dark"] .hviz-rt .rt-grid line{stroke:rgba(143,180,232,.1);}
+:root[data-theme="dark"] .hviz-rt .rt-ghost{stroke:rgba(207,219,237,.16);}
+:root[data-theme="dark"] .hviz-rt .rt-main{stroke:#8FB4E8;}
+:root[data-theme="dark"] .hviz-rt .rt-stops circle{fill:#8FB4E8;}
+:root[data-theme="dark"] .hviz-rt .rt-hub,:root[data-theme="dark"] .hviz-rt .rt-ping{fill:#F5B94A;stroke:#F5B94A;}
+:root[data-theme="dark"] .hviz-rt .rt-hub{fill:#F5B94A;}
+:root[data-theme="dark"] .hviz-rt .rt-truck rect:first-child{fill:#F5B94A;}
+:root[data-theme="dark"] .hviz-ag .ag-msg rect:first-child{fill:rgba(207,219,237,.08);stroke:rgba(143,180,232,.22);}
+:root[data-theme="dark"] .hviz-ag .ag-msg.m2 rect:first-child{fill:rgba(245,185,74,.14);stroke:rgba(245,185,74,.3);}
+:root[data-theme="dark"] .hviz-ag .ag-msg .ln{fill:rgba(143,180,232,.5);}
+:root[data-theme="dark"] .hviz-ag .ag-msg.m2 .ln{fill:rgba(245,185,74,.7);}
+:root[data-theme="dark"] .hviz-ag .ag-dot,:root[data-theme="dark"] .hviz-ag .ag-ring{fill:#F5B94A;stroke:#F5B94A;}
+:root[data-theme="dark"] .hviz-ag .sp{fill:#8FB4E8;}
+
+@media(prefers-reduced-motion:reduce){
+  .hviz-wh .wh-scan,.hviz-rt .rt-main,.hviz-rt .rt-ping,.hviz-ag .ag-msg,.hviz-ag .ag-ring,.hviz-ag .sp{animation:none !important;}
+  .hviz-ag .ag-msg{opacity:1;}
+  .hviz-rt .rt-main{stroke-dashoffset:0;}
+}
+
 </style>
 </head>
 <body>
@@ -1733,15 +1817,64 @@ body{background:
     </div>
     <div class="h-scroll" data-reveal>
       <div class="h-card">
-        <div class="h-media"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80" alt="智慧倉儲" loading="lazy" onerror="this.parentNode.classList.add('nf')"><span class="h-tag">Warehouse AI</span></div>
+        <div class="h-media hviz hviz-wh">
+          <svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g class="wh-racks">
+              <rect x="26" y="60" width="58" height="112" rx="3"/><rect x="102" y="46" width="58" height="126" rx="3"/>
+              <rect x="178" y="70" width="58" height="102" rx="3"/><rect x="254" y="52" width="58" height="120" rx="3"/>
+            </g>
+            <g class="wh-boxes">
+              <rect class="wb" x="33" y="96" width="20" height="16" rx="2"/><rect class="wb b2" x="57" y="96" width="20" height="16" rx="2"/>
+              <rect class="wb b3" x="33" y="132" width="20" height="16" rx="2"/><rect class="wb b4" x="109" y="82" width="20" height="16" rx="2"/>
+              <rect class="wb b5" x="133" y="118" width="20" height="16" rx="2"/><rect class="wb b2" x="185" y="106" width="20" height="16" rx="2"/>
+              <rect class="wb b6" x="261" y="88" width="20" height="16" rx="2"/><rect class="wb b3" x="285" y="124" width="20" height="16" rx="2"/>
+            </g>
+            <line class="wh-scan" x1="0" y1="0" x2="360" y2="0"/>
+            <g class="wh-det"><rect x="105" y="78" width="28" height="24" rx="2"/><text x="105" y="73">98%</text></g>
+            <line class="wh-floor" x1="0" y1="180" x2="360" y2="180"/>
+          </svg>
+          <span class="h-tag">Warehouse AI</span>
+        </div>
         <div class="h-body"><span class="tag-pill">Warehouse AI</span><h4>智慧倉儲即時儀表板</h4><p>整合庫存、出貨與異常警示的即時監控系統。</p></div>
       </div>
       <div class="h-card">
-        <div class="h-media"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=80" alt="配送路徑" loading="lazy" onerror="this.parentNode.classList.add('nf')"><span class="h-tag">Route VRP</span></div>
+        <div class="h-media hviz hviz-rt">
+          <svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g class="rt-grid">
+              <line x1="0" y1="55" x2="360" y2="55"/><line x1="0" y1="110" x2="360" y2="110"/><line x1="0" y1="165" x2="360" y2="165"/>
+              <line x1="90" y1="0" x2="90" y2="220"/><line x1="180" y1="0" x2="180" y2="220"/><line x1="270" y1="0" x2="270" y2="220"/>
+            </g>
+            <path class="rt-ghost" d="M40,170 L110,170 L110,95 L215,95 L215,150 L320,150 L320,55"/>
+            <path id="rtPath" class="rt-main" d="M40,170 C90,150 80,95 140,95 S215,120 215,150 290,160 320,55"/>
+            <g class="rt-stops">
+              <circle cx="40" cy="170" r="5"/><circle cx="140" cy="95" r="4"/><circle cx="215" cy="150" r="4"/>
+              <circle class="rt-hub" cx="320" cy="55" r="6"/>
+              <circle class="rt-ping" cx="320" cy="55" r="6"/>
+            </g>
+            <g class="rt-truck">
+              <rect x="-9" y="-6" width="18" height="12" rx="2.5"/><rect x="-9" y="-1" width="18" height="2"/>
+              <animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#rtPath"/></animateMotion>
+            </g>
+          </svg>
+          <span class="h-tag">Route VRP</span>
+        </div>
         <div class="h-body"><span class="tag-pill">Route Optimization</span><h4>配送路徑優化系統（VRP）</h4><p>以演化演算法求解車輛路徑問題，降低配送成本。</p></div>
       </div>
       <div class="h-card">
-        <div class="h-media"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80" alt="WMS AI 助手" loading="lazy" onerror="this.parentNode.classList.add('nf')"><span class="h-tag">AI Agent</span></div>
+        <div class="h-media hviz hviz-ag">
+          <svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g class="ag-msg m1"><rect x="34" y="48" width="150" height="26" rx="13"/><rect class="ln" x="48" y="58" width="86" height="5" rx="2.5"/></g>
+            <g class="ag-msg m2"><rect x="128" y="88" width="196" height="34" rx="13"/><rect class="ln" x="144" y="98" width="150" height="5" rx="2.5"/><rect class="ln" x="144" y="109" width="104" height="5" rx="2.5"/></g>
+            <g class="ag-msg m3"><rect x="34" y="136" width="126" height="26" rx="13"/><rect class="ln" x="48" y="146" width="70" height="5" rx="2.5"/></g>
+            <g class="ag-core">
+              <circle class="ag-ring r1" cx="300" cy="176" r="17"/>
+              <circle class="ag-ring r2" cx="300" cy="176" r="24"/>
+              <circle class="ag-dot" cx="300" cy="176" r="7"/>
+            </g>
+            <g class="ag-spark"><circle class="sp s1" cx="248" cy="168" r="2"/><circle class="sp s2" cx="266" cy="192" r="1.6"/><circle class="sp s3" cx="238" cy="190" r="1.4"/></g>
+          </svg>
+          <span class="h-tag">AI Agent</span>
+        </div>
         <div class="h-body"><span class="tag-pill">AI Agent</span><h4>倉儲管理系統 AI 助手</h4><p>結合大語言模型的自然語言查詢介面。</p></div>
       </div>
     </div>
@@ -2412,7 +2545,16 @@ const JOURNEY = [
    ]},
   {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'live',date:'2026/07/06',
    focus:'五元組治理 · 主資料 · KRI/KPI',boss:'BOSS II · 物流控制塔 Alpha',url:'https://learn.ctone.com.tw/W2/',
-   days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔']},
+   days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔'],
+   decks:[
+    {n:'第一組',src:'https://drive.google.com/file/d/1mJs745jvzvdPO-AeBJh0DfGt1vLyPc6K/preview'},
+    {n:'第二組',src:'https://drive.google.com/file/d/1bV1sOhFMKd_Cklq1FNy7v28MMVKCIBLm/preview'},
+    {n:'第三組',src:'https://docs.google.com/presentation/d/1tGCiBWLNaY6KawNG8rjm1RI18wlZnMLt/embed?start=false&loop=false&delayms=3000'},
+    {n:'第四組',src:'https://drive.google.com/file/d/1kQwsDrDYs5Bk1LkGkFesT0xeklPbvV4i/preview'},
+    {n:'第五組',src:'https://docs.google.com/presentation/d/1r_Af-MSXzVGXSP5XwSk2y8StEUPzgQWG/embed?start=false&loop=false&delayms=3000'},
+    {n:'第六組',src:'https://drive.google.com/file/d/18FmuEnhCaCYuGKbtCdx5xmZVV9XKTkPP/preview'},
+    {n:'第七組',src:'https://docs.google.com/presentation/d/154xDGA6_Jnz4yd7fbDxqlwVm5ScTyXhX/embed?start=false&loop=false&delayms=3000'}
+   ]},
   {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'scheduled',date:'2026/07/13',
    focus:'算命師 · 促銷策劃 · 分群 · 推薦',boss:'BOSS III · 精準行銷引擎',
    days:['客戶流失預測','銷量預測','促銷策劃 · Apriori','分群升級 · 推薦引擎','BOSS III · 精準行銷引擎'],
