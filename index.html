@@ -2358,7 +2358,7 @@ body{background:
       <div class="footer-cols">
         <div class="footer-col"><b>網站導覽</b><a href="#about">課程介紹</a><a href="#journey">8週歷程</a><a href="#projects">作品展示</a></div>
         <div class="footer-col"><b>聯絡資訊</b><a href="mailto:elinor@itri.org.tw">課程行政：elinor@itri.org.tw</a><a href="tel:+88635918710">課程洽詢：吳小姐 03-5918710</a><a href="mailto:chen.chihteng@nutc.edu.tw">專案信箱：chen.chihteng@nutc.edu.tw</a><a href="https://reurl.cc/9WLeva" target="_blank" rel="noopener">專案網站連結</a><a href="https://reurl.cc/K2aaMe" target="_blank" rel="noopener">招生說明會簡報連結</a><a href="https://reurl.cc/xW4XX5" target="_blank" rel="noopener">LINE 課程諮詢社群連結</a></div>
-        <div class="footer-col"><b>主辦・執行・培訓</b><a href="#">主辦單位：經濟部商業發展署</a><a href="#">執行單位：商業服務業 AI 人才辦公室</a><a href="#">培訓單位：工業技術研究院</a></div>
+        <div class="footer-col"><b>主辦・執行・培訓</b><a href="#">主辦單位：經濟部商業發展署</a><a href="#">執行單位：商業服務業 AI 人才辦公室</a><a href="#">培訓單位：工業技術研究院</a><a href="#">培訓單位：國立臺中科技大學 AI 應用工程學士學位學程</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2532,8 +2532,13 @@ const JOURNEY = [
   {wk:'W1',role:'資料驅動師',en:'Data-Driven Analyst',phase:'learn',status:'done',date:'2026/06/29',
    focus:'啟動日 · 清洗 · 儀表板 · RFM',boss:'BOSS I · 數據體檢報告',url:'https://learn.ctone.com.tw/W1/',
    days:['啟動日 · VMDA 思維','資料清洗 · Pandas','儀表板 · Streamlit','RFM 客戶分群','BOSS I · 數據體檢報告'],
-   // replay 影片已下架待審（重審後填回）
-   // album 已下架待審（重審通過後填回）
+   dayAlbums:[
+    {d:'D1',t:'啟動日 · VMDA 思維',url:'https://drive.google.com/drive/folders/1WZqBcVpptkBfi4TRCcVJieFdvccLqkov'},
+    {d:'D2',t:'資料清洗 · Pandas',url:'https://drive.google.com/drive/folders/1_odD56YbpkeqlIIgmrG-evgFaJ_EGSCC'},
+    {d:'D3',t:'儀表板 · Streamlit',url:'https://drive.google.com/drive/folders/1lz9EduhMTN4oN-JWaIH9iFSzMFCFicsS'},
+    {d:'D4',t:'RFM 客戶分群',url:'https://drive.google.com/drive/folders/1HIX3jM0D169-wXk-WYr7BDPRmonRZfRK'},
+    {d:'D5',t:'BOSS I · 數據體檢報告',url:'https://drive.google.com/drive/folders/1hRJdVhhgczSRgbCLszCb4r2E1brAx4z6'}
+   ],
    decks:[
     {n:'第一組',src:'https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000'},
     {n:'第二組',src:'https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000'},
@@ -2543,9 +2548,16 @@ const JOURNEY = [
     {n:'第六組',src:'https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview'},
     {n:'第七組',src:'https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview'}
    ]},
-  {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'live',date:'2026/07/06',
+  {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'done',date:'2026/07/06',
    focus:'五元組治理 · 主資料 · KRI/KPI',boss:'BOSS II · 物流控制塔 Alpha',url:'https://learn.ctone.com.tw/W2/',
    days:['WMS 倉儲管理','TMS 運輸監控','供應商評估','決策支援','BOSS II · 物流控制塔'],
+   dayAlbums:[
+    {d:'D6',t:'WMS 倉儲管理',url:'https://drive.google.com/drive/folders/1MPo4VK1B-L_9GGIkgFb4o34PJVYijPpj'},
+    {d:'D7',t:'TMS 運輸監控',url:'https://drive.google.com/drive/folders/1zbh7ymKRmeCf6bPBiDhKU4lsB1edcOtk'},
+    {d:'D8',t:'供應商評估',url:'https://drive.google.com/drive/folders/1vvGGIgCjOXn9ltrxYU4h-0y7bR6FoxwT'},
+    {d:'D9',t:'決策支援',url:'https://drive.google.com/drive/folders/1Rk3Fe54k5YL_sWvCgJ1I1XlY_OP_UmYd'},
+    {d:'D10',t:'BOSS II · 物流控制塔',url:'https://drive.google.com/drive/folders/1BLjkQ7WepvVGc8-KPkqJ5l7qDFHdM9fL'}
+   ],
    decks:[
     {n:'第一組',src:'https://drive.google.com/file/d/1mJs745jvzvdPO-AeBJh0DfGt1vLyPc6K/preview'},
     {n:'第二組',src:'https://drive.google.com/file/d/1bV1sOhFMKd_Cklq1FNy7v28MMVKCIBLm/preview'},
@@ -2555,11 +2567,18 @@ const JOURNEY = [
     {n:'第六組',src:'https://drive.google.com/file/d/18FmuEnhCaCYuGKbtCdx5xmZVV9XKTkPP/preview'},
     {n:'第七組',src:'https://docs.google.com/presentation/d/154xDGA6_Jnz4yd7fbDxqlwVm5ScTyXhX/embed?start=false&loop=false&delayms=3000'}
    ]},
-  {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'scheduled',date:'2026/07/13',
+  {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'live',date:'2026/07/13',
    focus:'算命師 · 促銷策劃 · 分群 · 推薦',boss:'BOSS III · 精準行銷引擎',
    days:['客戶流失預測','銷量預測','促銷策劃 · Apriori','分群升級 · 推薦引擎','BOSS III · 精準行銷引擎'],
+   dayAlbums:[
+    {d:'D11',t:'客戶流失預測',url:'https://drive.google.com/drive/folders/1sw7NNMtrHiO6hAzJ4c5R9qtPsyMEh2os'},
+    {d:'D12',t:'銷量預測',url:'https://drive.google.com/drive/folders/1gPcgAAy1Qizh4afe74ClljhqlPqcosd4'},
+    {d:'D13',t:'促銷策劃 · Apriori',url:'https://drive.google.com/drive/folders/1LIVJtsF1Yceth3ZZAWmJByP20f4r4s4k'},
+    {d:'D14',t:'分群升級 · 推薦引擎',url:'https://drive.google.com/drive/folders/18iIcXizZNkU5kwWkZfaqJcsteS8zb0TG'},
+    {d:'D15',t:'BOSS III · 精準行銷引擎',url:'https://drive.google.com/drive/folders/1Drc47F81M0paM0J2XQj2RcbNj44ieJMr'}
+   ],
    deliv:['Day5 分組簡報','Demo 影片','課堂照片','學員心得']},
-  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'locked',date:'2026/07/20',
+  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'scheduled',date:'2026/07/20',
    focus:'輿情 · 路徑 · 整合 · AI 代理人',boss:'Day20 綜合測驗 + BOSS IV',
    days:['輿情分析','路徑規劃','整合架構','AI 代理人','綜合測驗 + BOSS IV'],
    deliv:['Day5 分組簡報','綜合測驗','課堂照片','學員心得']},
@@ -2800,7 +2819,7 @@ function openWkModal(w, kind){
     let cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
     addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;cur.style.opacity='1';},{passive:true});
     document.addEventListener('mouseleave',()=>cur.style.opacity='0');
-    (function loop(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
+    (function loop(){cx+=(tx-cx)*1;cy+=(ty-cy)*1;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
     const jmap=wk=>(typeof JOURNEY!=='undefined'?JOURNEY.find(w=>w.wk===wk):null);
     document.addEventListener('mouseover',e=>{
       const node=e.target.closest&&e.target.closest('.rail-node');
