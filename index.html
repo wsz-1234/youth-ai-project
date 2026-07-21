@@ -1991,7 +1991,7 @@ body{background:
     </div>
     <div class="poster-wrap" data-reveal>
       <div class="poster-frame">
-        <img src="https://drive.google.com/file/d/1oU75HuOlwgIpguwVSb2-tM_jQKqzPGRv/view?usp=sharing" alt="智慧物流班 課程海報" loading="lazy">
+        <img src="https://drive.google.com/file/d/19tRL8mdXFrb68Z6P5v3qGkz0I8lgnIqa/view?usp=sharing" alt="智慧物流班 課程海報" loading="lazy">
       </div>
     </div>
   </div>
@@ -2701,7 +2701,10 @@ function renderDrop(w, kind){
 })();
 
 // ============ 媒體中心邏輯 ============
-const REELS = {W1\u2013W2':'https://youtu.be/7o7YwgNkJE4'};
+const REELS = {
+  // 照片／影片審核中，暫時全部下架。審核通過後再填回：
+  // 'W1\u2013W2':'https://www.youtube.com/embed/ZTpvM_jGjCE?si=KIKmnQg7lIxA-UNA'
+};
 function pairOf(wk){ var n=+wk.slice(1); var lo=Math.floor((n-1)/2)*2+1; return 'W'+lo+'\u2013W'+(lo+1); }
 (function mediaHub(){
   const hub=document.getElementById('mediaHub'); if(!hub) return;
