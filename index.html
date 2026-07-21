@@ -1431,7 +1431,7 @@ body{background:
 .teaser-card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;max-width:640px;}
 .teaser-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
 .teaser-chips span{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);background:var(--bg-soft);border:1px solid var(--line);padding:6px 13px;border-radius:100px;}
-.teaser-preview{position:relative;margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;filter:blur(1px);}
+.teaser-{position:relative;margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;filter:blur(1px);}
 .tp-card{background:linear-gradient(160deg,var(--bg-deep),#fff);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-height:180px;}
 .tp-tag{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--blue);}
 .tp-line{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.35;}
@@ -1444,7 +1444,7 @@ body{background:
 :root[data-theme="dark"] .tp-card{background:rgba(76,97,120,.28);border-color:var(--line);}
 :root[data-theme="dark"] .tp-veil{background:linear-gradient(180deg,rgba(15,26,38,.4),rgba(15,26,38,.9));}
 :root[data-theme="dark"] .tp-veil b{background:linear-gradient(120deg,#F5B94A,#FFD483);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-@media(max-width:760px){.teaser-preview{grid-template-columns:1fr;}}
+@media(max-width:760px){.teaser-{grid-template-columns:1fr;}}
 
 
 /* ============ 媒體中心 ============ */
@@ -2245,7 +2245,7 @@ body{background:
         <div class="teaser-chips">
           <span>Warehouse AI</span><span>Route VRP</span><span>AI Agent</span><span>Control Tower</span><span>Shadow Mode</span>
         </div>
-        <div class="teaser-preview" aria-hidden="true">
+        <div class="teaser-" aria-hidden="true">
           <div class="tp-card"><span class="tp-tag">Project 01</span><div class="tp-line"></div><div class="tp-line short"></div></div>
           <div class="tp-card"><span class="tp-tag">Project 02</span><div class="tp-line"></div><div class="tp-line short"></div></div>
           <div class="tp-card"><span class="tp-tag">Project 03</span><div class="tp-line"></div><div class="tp-line short"></div></div>
@@ -2542,11 +2542,11 @@ const JOURNEY = [
    decks:[
     {n:'第一組',src:'https://docs.google.com/presentation/d/1Pa-suwVMc2m3pOwZcO0k1iz1fpcDfwun/embed?start=false&loop=false&delayms=3000'},
     {n:'第二組',src:'https://docs.google.com/presentation/d/1ZFxrCaZeX76RzqSOBxO0OkmlGn0ZnHfS/embed?start=false&loop=false&delayms=3000'},
-    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/preview'},
+    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/'},
     {n:'第四組',src:'https://docs.google.com/presentation/d/1DD71A9q3eh7d0dsKFZiq7DWo_AqfFubB/embed?start=false&loop=false&delayms=3000'},
     {n:'第五組',src:'https://docs.google.com/presentation/d/1hvgIDhwGT49hArLGYSQyxZ1HJiwkAHNH/embed?start=false&loop=false&delayms=3000'},
-    {n:'第六組',src:'https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/preview'},
-    {n:'第七組',src:'https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/preview'}
+    {n:'第六組',src:'https://drive.google.com/file/d/1gG2pDYAQnJPl_j28XuoDxQ_YoHmsLSze/'},
+    {n:'第七組',src:'https://drive.google.com/file/d/1FghgOGjihNvplX2dT-nAmigej4XUS7Vy/'}
    ]},
   {wk:'W2',role:'管理工程師',en:'Operations Engineer',phase:'learn',status:'done',date:'2026/07/06',
    focus:'五元組治理 · 主資料 · KRI/KPI',boss:'BOSS II · 物流控制塔 Alpha',url:'https://learn.ctone.com.tw/W2/',
@@ -2559,12 +2559,12 @@ const JOURNEY = [
     {d:'D10',t:'BOSS II · 物流控制塔',url:'https://drive.google.com/drive/folders/1BLjkQ7WepvVGc8-KPkqJ5l7qDFHdM9fL'}
    ],
    decks:[
-    {n:'第一組',src:'https://drive.google.com/file/d/1mJs745jvzvdPO-AeBJh0DfGt1vLyPc6K/preview'},
-    {n:'第二組',src:'https://drive.google.com/file/d/1bV1sOhFMKd_Cklq1FNy7v28MMVKCIBLm/preview'},
+    {n:'第一組',src:'https://drive.google.com/file/d/1mJs745jvzvdPO-AeBJh0DfGt1vLyPc6K/'},
+    {n:'第二組',src:'https://drive.google.com/file/d/1bV1sOhFMKd_Cklq1FNy7v28MMVKCIBLm/'},
     {n:'第三組',src:'https://docs.google.com/presentation/d/1tGCiBWLNaY6KawNG8rjm1RI18wlZnMLt/embed?start=false&loop=false&delayms=3000'},
-    {n:'第四組',src:'https://drive.google.com/file/d/1kQwsDrDYs5Bk1LkGkFesT0xeklPbvV4i/preview'},
+    {n:'第四組',src:'https://drive.google.com/file/d/1kQwsDrDYs5Bk1LkGkFesT0xeklPbvV4i/'},
     {n:'第五組',src:'https://docs.google.com/presentation/d/1r_Af-MSXzVGXSP5XwSk2y8StEUPzgQWG/embed?start=false&loop=false&delayms=3000'},
-    {n:'第六組',src:'https://drive.google.com/file/d/18FmuEnhCaCYuGKbtCdx5xmZVV9XKTkPP/preview'},
+    {n:'第六組',src:'https://drive.google.com/file/d/18FmuEnhCaCYuGKbtCdx5xmZVV9XKTkPP/'},
     {n:'第七組',src:'https://docs.google.com/presentation/d/154xDGA6_Jnz4yd7fbDxqlwVm5ScTyXhX/embed?start=false&loop=false&delayms=3000'}
    ]},
   {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'live',date:'2026/07/13',
@@ -2578,13 +2578,13 @@ const JOURNEY = [
     {d:'D15',t:'BOSS III · 精準行銷引擎',url:'https://drive.google.com/drive/folders/1Drc47F81M0paM0J2XQj2RcbNj44ieJMr'}
    ],
    decks:[
-    {n:'第一組',src:'https://drive.google.com/file/d/1-_Cfxttho27MvxqgqJLk7yeJk3OsymOy/view?usp=drive_link'},
-    {n:'第二組',src:'https://drive.google.com/file/d/1u1FQvyaaAWumbJsxdYDCWsDT-FecNLXR/view?usp=sharing'},
-    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/view?usp=sharing'},
-    {n:'第四組',src:'https://docs.google.com/file/d/1anvbG5NeTxa1MZvmRIN55IoBBljIYzSs/view?usp=sharing'},
-    {n:'第五組',src:'https://docs.google.com/file/d/1JwAKiT0BOVgXso4dU0__fH4TqBS0B9vR/view?usp=sharing'},
-    {n:'第六組',src:'https://docs.google.com/file/d/1EScN6oaiFLd-v-j9BWVsMIQbUK4hn0Bw/view?usp=sharing'},
-    {n:'第七組',src:'https://docs.google.com/file/d/1nazfXowadK64Y6ntFZff5DWqGdRFQEuU/view?usp=sharing'}
+    {n:'第一組',src:'https://drive.google.com/file/d/1-_Cfxttho27MvxqgqJLk7yeJk3OsymOy/'},
+    {n:'第二組',src:'https://drive.google.com/file/d/1u1FQvyaaAWumbJsxdYDCWsDT-FecNLXR/'},
+    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/'},
+    {n:'第四組',src:'https://docs.google.com/presentation/d/1anvbG5NeTxa1MZvmRIN55IoBBljIYzSs/embed?start=false&loop=false&delayms=3000'},
+    {n:'第五組',src:'https://docs.google.com/presentation/d/1JwAKiT0BOVgXso4dU0__fH4TqBS0B9vR/embed?start=false&loop=false&delayms=3000'},
+    {n:'第六組',src:'https://docs.google.com/presentation/d/1EScN6oaiFLd-v-j9BWVsMIQbUK4hn0Bw/embed?start=false&loop=false&delayms=3000'},
+    {n:'第七組',src:'https://docs.google.com/presentation/d/1nazfXowadK64Y6ntFZff5DWqGdRFQEuU/embed?start=false&loop=false&delayms=3000'}
    ],
    deliv:['Day5 分組簡報','Demo 影片','課堂照片','學員心得']},
   {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'scheduled',date:'2026/07/20',
