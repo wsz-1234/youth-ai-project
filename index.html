@@ -965,8 +965,13 @@ footer{position:relative;z-index:1;}
 /* 課程海報 */
 .poster-wrap{display:flex;justify-content:center;}
 .poster-frame{position:relative;width:min(440px,94%);border-radius:0;overflow:hidden;
-  box-shadow:var(--shadow-soft);border:1px solid var(--line);background:#fff;}
-.poster-frame img{display:block;width:100%;height:auto;}
+  aspect-ratio:3/4;background:#fff;box-shadow:var(--shadow-soft);border:1px solid var(--line);}
+.poster-frame .poster-embed{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2;}
+.poster-frame .poster-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;}
+.poster-frame .poster-open{position:absolute;left:0;right:0;bottom:0;z-index:3;text-align:center;padding:8px;
+  font-family:var(--font-mono);font-size:11px;font-weight:700;color:#fff;background:linear-gradient(to top,rgba(11,27,51,.72),transparent);
+  opacity:0;transition:.3s var(--ease);}
+.poster-frame:hover .poster-open{opacity:1;}
 .poster-ph{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;}
 .poster-ph span{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);}
 .poster-ph small{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);line-height:1.6;}
@@ -1991,7 +1996,9 @@ body{background:
     </div>
     <div class="poster-wrap" data-reveal>
       <div class="poster-frame">
-        <img src="https://drive.google.com/file/d/19tRL8mdXFrb68Z6P5v3qGkz0I8lgnIqa/view?usp=sharing" alt="智慧物流班 課程海報" loading="lazy">
+        <iframe class="poster-embed" src="https://drive.google.com/file/d/1oU75HuOlwgIpguwVSb2-tM_jQKqzPGRv/preview" title="智慧物流班 課程海報" loading="lazy" allow="autoplay"></iframe>
+        <img class="poster-img" src="https://drive.google.com/thumbnail?id=1oU75HuOlwgIpguwVSb2-tM_jQKqzPGRv&sz=w1600" alt="智慧物流班 課程海報" loading="lazy" referrerpolicy="no-referrer">
+        <a class="poster-open" href="https://drive.google.com/file/d/1oU75HuOlwgIpguwVSb2-tM_jQKqzPGRv/view" target="_blank" rel="noopener">開啟海報大圖 →</a>
       </div>
     </div>
   </div>
@@ -2567,7 +2574,7 @@ const JOURNEY = [
     {n:'第六組',src:'https://drive.google.com/file/d/18FmuEnhCaCYuGKbtCdx5xmZVV9XKTkPP/'},
     {n:'第七組',src:'https://docs.google.com/presentation/d/154xDGA6_Jnz4yd7fbDxqlwVm5ScTyXhX/embed?start=false&loop=false&delayms=3000'}
    ]},
-  {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'live',date:'2026/07/13',
+  {wk:'W3',role:'AI 價值師',en:'AI Value Designer',phase:'learn',status:'done',date:'2026/07/13',
    focus:'算命師 · 促銷策劃 · 分群 · 推薦',boss:'BOSS III · 精準行銷引擎',
    days:['客戶流失預測','銷量預測','促銷策劃 · Apriori','分群升級 · 推薦引擎','BOSS III · 精準行銷引擎'],
    dayAlbums:[
@@ -2578,20 +2585,20 @@ const JOURNEY = [
     {d:'D15',t:'BOSS III · 精準行銷引擎',url:'https://drive.google.com/drive/folders/1Drc47F81M0paM0J2XQj2RcbNj44ieJMr'}
    ],
    decks:[
-    {n:'第一組',src:'https://drive.google.com/file/d/1-_Cfxttho27MvxqgqJLk7yeJk3OsymOy/'},
-    {n:'第二組',src:'https://drive.google.com/file/d/1u1FQvyaaAWumbJsxdYDCWsDT-FecNLXR/'},
-    {n:'第三組',src:'https://drive.google.com/file/d/1dvrOjomZxPies9ZcYauJorJoBiidLJId/'},
+    {n:'第一組',src:'https://docs.google.com/presentation/d/1nazfXowadK64Y6ntFZff5DWqGdRFQEuU/embed?start=false&loop=false&delayms=3000'},
+    {n:'第二組',src:'https://docs.google.com/presentation/d/1EScN6oaiFLd-v-j9BWVsMIQbUK4hn0Bw/embed?start=false&loop=false&delayms=3000'},
+    {n:'第三組',src:'https://docs.google.com/presentation/d/1JwAKiT0BOVgXso4dU0__fH4TqBS0B9vR/embed?start=false&loop=false&delayms=3000'},
     {n:'第四組',src:'https://docs.google.com/presentation/d/1anvbG5NeTxa1MZvmRIN55IoBBljIYzSs/embed?start=false&loop=false&delayms=3000'},
-    {n:'第五組',src:'https://docs.google.com/presentation/d/1JwAKiT0BOVgXso4dU0__fH4TqBS0B9vR/embed?start=false&loop=false&delayms=3000'},
-    {n:'第六組',src:'https://docs.google.com/presentation/d/1EScN6oaiFLd-v-j9BWVsMIQbUK4hn0Bw/embed?start=false&loop=false&delayms=3000'},
-    {n:'第七組',src:'https://docs.google.com/presentation/d/1nazfXowadK64Y6ntFZff5DWqGdRFQEuU/embed?start=false&loop=false&delayms=3000'}
+    {n:'第五組',src:'https://drive.google.com/file/d/1BI0mMOg6T4quS6sEXrpiHwknaFRT1HCn/preview'},
+    {n:'第六組',src:'https://drive.google.com/file/d/1-_Cfxttho27MvxqgqJLk7yeJk3OsymOy/preview'},
+    {n:'第七組',src:'https://drive.google.com/file/d/1u1FQvyaaAWumbJsxdYDCWsDT-FecNLXR/preview'}
    ],
    deliv:['Day5 分組簡報','Demo 影片','課堂照片','學員心得']},
-  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'scheduled',date:'2026/07/20',
+  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'live',date:'2026/07/20',
    focus:'輿情 · 路徑 · 整合 · AI 代理人',boss:'Day20 綜合測驗 + BOSS IV',
    days:['輿情分析','路徑規劃','整合架構','AI 代理人','綜合測驗 + BOSS IV'],
    deliv:['Day5 分組簡報','綜合測驗','課堂照片','學員心得']},
-  {wk:'W5',role:'專案啟動',en:'Project Kickoff',phase:'project',status:'locked',date:'2026/07/27',
+  {wk:'W5',role:'專案啟動',en:'Project Kickoff',phase:'project',status:'scheduled',date:'2026/07/27',
    focus:'VPC · WBS · 甘特 · 環境建置',boss:'M1 · 章程審查',
    days:['專題選題 · VPC','WBS 與甘特','資料生成','環境建置','M1 · 章程審查'],
    deliv:['專題企劃書','資料生成規劃','里程碑 M1']},
