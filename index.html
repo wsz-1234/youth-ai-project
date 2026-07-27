@@ -951,14 +951,29 @@ footer{position:relative;z-index:1;}
 .wk-cell.is-locked .daylist li b,.wk-cell.is-scheduled .daylist li b{color:var(--ink-faint);}
 
 /* 學員專區卡片 */
-.student-card{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;}
+.student-card{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;padding:24px 22px;}
+.student-card .sc-head{display:flex;align-items:center;justify-content:space-between;width:100%;}
 .student-card .st-no{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);letter-spacing:.05em;}
-.student-card .avatar{width:54px;height:54px;margin:12px 0;}
-.student-card h4{font-size:17px;}
-.student-card .st-link{margin-top:auto;padding-top:14px;font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--blue);display:inline-flex;gap:7px;align-items:center;}
-.student-card .st-link .ar{transition:transform .25s var(--ease);}
-.student-card:hover .st-link .ar{transform:translateX(4px);}
-.student-card .st-link.todo{color:var(--ink-faint);}
+.student-card .sc-field{font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--blue);background:rgba(10,108,255,.09);border:1px solid rgba(10,108,255,.2);padding:3px 9px;border-radius:100px;}
+.student-card .avatar{width:56px;height:56px;margin:16px 0 12px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:22px;color:#fff;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 8px 20px -8px rgba(10,108,255,.5);}
+.student-card h4{font-size:18px;letter-spacing:-.01em;}
+.student-card .sc-role{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.02em;margin-top:5px;}
+.student-card .sc-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:18px;width:100%;}
+.student-card .sc-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:12.5px;font-weight:700;border:none;outline:none;-webkit-tap-highlight-color:transparent;
+  padding:8px 13px;border-radius:10px;transition:.25s var(--ease);cursor:pointer;}
+.student-card .sc-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.student-card .sc-btn.primary{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;box-shadow:0 8px 18px -8px rgba(10,108,255,.5);}
+.student-card .sc-btn:focus,.student-card .sc-btn:focus-visible,.student-card .sc-btn:active{outline:none;box-shadow:0 8px 18px -8px rgba(10,108,255,.5);}
+.student-card .sc-btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(10,108,255,.6);}
+.student-card .sc-btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line);}
+.student-card .sc-btn.ghost:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-2px);}
+.student-card .sc-btn.todo{background:var(--bg-deep);color:var(--ink-faint);border:1px solid var(--line);cursor:default;}
+:root[data-theme="dark"] .student-card .sc-field{color:#F5B94A;background:rgba(245,185,74,.12);border-color:rgba(245,185,74,.3);}
+:root[data-theme="dark"] .student-card .avatar{background:linear-gradient(135deg,#8FB4E8,#5D8FCF);box-shadow:0 8px 20px -8px rgba(143,180,232,.5);}
+:root[data-theme="dark"] .student-card .sc-btn.primary{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+:root[data-theme="dark"] .student-card .sc-btn.ghost:hover{color:#F5B94A;border-color:#F5B94A;}
 
 
 /* 課程海報 */
@@ -1601,6 +1616,85 @@ body{background:
   .hviz-ag .ag-msg{opacity:1;}
   .hviz-rt .rt-main{stroke-dashoffset:0;}
 }
+
+
+/* 學員頭像：線條物流箱子小人 */
+.student-card .avatar.boxfig{background:linear-gradient(160deg,#F2F6FC,#E4EDF7);box-shadow:inset 0 0 0 1px rgba(11,27,51,.06);}
+.student-card .avatar.boxfig svg{width:32px;height:32px;fill:none;stroke:var(--blue);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.student-card:nth-child(3n+2) .avatar.boxfig svg{stroke:#12b0b0;}
+.student-card:nth-child(3n+3) .avatar.boxfig svg{stroke:#6E8BB5;}
+:root[data-theme="dark"] .student-card .avatar.boxfig{background:rgba(207,219,237,.08);box-shadow:inset 0 0 0 1px rgba(207,219,237,.14);}
+:root[data-theme="dark"] .student-card .avatar.boxfig svg{stroke:#8FB4E8;}
+:root[data-theme="dark"] .student-card:nth-child(3n+2) .avatar.boxfig svg{stroke:#F5B94A;}
+:root[data-theme="dark"] .student-card:nth-child(3n+3) .avatar.boxfig svg{stroke:#CFDBED;}
+/* 內嵌作品檢視器 */
+.stu-stage{margin-top:24px;background:var(--glass-strong);border:1px solid var(--glass-b);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);overflow:hidden;}
+.ss-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--line);}
+.ss-ey{font-family:var(--font-serif);font-style:italic;font-size:14px;color:var(--blue);}
+.ss-name{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:-.01em;margin-top:2px;}
+.ss-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.ss-tabs{display:flex;gap:6px;}
+.ss-tab{font-family:var(--font-mono);font-size:12px;font-weight:700;padding:7px 13px;border-radius:100px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);cursor:pointer;transition:.2s var(--ease);}
+.ss-tab.on{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+.ss-open{font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--blue);white-space:nowrap;}
+.ss-close{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;font-size:13px;}
+.ss-close:hover{background:var(--bg-soft);color:var(--ink);}
+.stu-stage{scroll-margin-top:96px;}
+.ss-body{position:relative;aspect-ratio:16/9;min-height:460px;background:#0F1A26;}
+.ss-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.ss-note{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);text-align:center;padding:9px;}
+:root[data-theme="dark"] .ss-tab.on{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+:root[data-theme="dark"] .ss-ey,:root[data-theme="dark"] .ss-open{color:#F5B94A;}
+@media(max-width:640px){.ss-body{min-height:300px;}}
+
+/* 學員簡報 modal */
+.stu-modal{position:fixed;inset:0;z-index:10002;display:none;align-items:center;justify-content:center;padding:24px;}
+.stu-modal.open{display:flex;}
+.sm-backdrop{position:absolute;inset:0;background:rgba(11,20,37,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
+.sm-panel{position:relative;z-index:2;width:min(1000px,100%);max-height:min(90vh,820px);border-radius:20px;overflow:hidden;background:var(--bg);border:1px solid var(--line);box-shadow:0 40px 100px -20px rgba(0,0,0,.6);display:flex;flex-direction:column;animation:wkmIn .4s cubic-bezier(.2,.9,.2,1);}
+.sm-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 20px;border-bottom:1px solid var(--line);}
+.sm-title{font-family:var(--font-display);font-size:16px;font-weight:700;}
+.sm-actions{display:flex;align-items:center;gap:12px;}
+.sm-open{font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--blue);white-space:nowrap;}
+.sm-close{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;font-size:14px;}
+.sm-close:hover{background:var(--bg-soft);color:var(--ink);}
+.sm-body{flex:1;position:relative;min-height:420px;background:#0F1A26;}
+.sm-body iframe{width:100%;height:100%;min-height:480px;border:0;display:block;}
+.sm-note{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);text-align:center;padding:9px;}
+:root[data-theme="dark"] .sm-open{color:#F5B94A;}
+@media(max-width:640px){.sm-body{min-height:300px;}.sm-body iframe{min-height:320px;}}
+
+.student-card.active{outline:2px solid var(--blue);outline-offset:2px;box-shadow:var(--shadow-soft);}
+:root[data-theme="dark"] .student-card.active{outline-color:#F5B94A;}
+
+/* 學員卡就地展開 */
+.student-card{transition:box-shadow .3s var(--ease),transform .3s var(--ease);}
+.student-card.has-work{cursor:pointer;}
+.student-card.has-work:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft);}
+.student-card .sc-viewer{display:none;}
+.student-card.expanded{grid-column:1 / -1;padding:0;transform:none;box-shadow:var(--shadow-soft);cursor:default;}
+.student-card.expanded:hover{transform:none;}
+.student-card.expanded .sc-head,.student-card.expanded .sc-compact{display:none;}
+.student-card.expanded .sc-viewer{display:flex;flex-direction:column;animation:scfade .35s ease;}
+@keyframes scfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.scv-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 20px;border-bottom:1px solid var(--line);}
+.scv-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.scv-no{font-family:var(--font-mono);font-size:12px;color:var(--blue);font-weight:700;letter-spacing:.05em;}
+.scv-meta b{font-family:var(--font-display);font-size:18px;letter-spacing:-.01em;}
+.scv-field{font-family:var(--font-mono);font-size:10.5px;font-weight:700;color:var(--blue);background:rgba(10,108,255,.09);border:1px solid rgba(10,108,255,.2);padding:3px 9px;border-radius:100px;}
+.scv-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.scv-tabs{display:flex;gap:6px;}
+.scv-tab{font-family:var(--font-mono);font-size:12px;font-weight:700;padding:7px 13px;border-radius:100px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);cursor:pointer;transition:.2s var(--ease);}
+.scv-tab.on{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+.scv-open{font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--blue);white-space:nowrap;}
+.scv-close{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;font-size:13px;transition:.2s var(--ease);}
+.scv-close:hover{background:var(--bg-soft);color:var(--ink);}
+.scv-body{position:relative;aspect-ratio:16/9;min-height:560px;background:#0F1A26;}
+.scv-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+:root[data-theme="dark"] .scv-tab.on{background:linear-gradient(120deg,#F5B94A,#E39B2A);color:#0F1A26;}
+:root[data-theme="dark"] .scv-open,:root[data-theme="dark"] .scv-no{color:#F5B94A;}
+:root[data-theme="dark"] .scv-field{color:#F5B94A;background:rgba(245,185,74,.12);border-color:rgba(245,185,74,.3);}
+@media(max-width:640px){.scv-body{min-height:340px;}}
 
 </style>
 </head>
@@ -2593,7 +2687,7 @@ const JOURNEY = [
     {n:'第七組',src:'https://drive.google.com/file/d/1u1FQvyaaAWumbJsxdYDCWsDT-FecNLXR/preview'}
    ],
    deliv:['Day5 分組簡報','Demo 影片','課堂照片','學員心得']},
-  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'live',date:'2026/07/20',
+  {wk:'W4',role:'智慧架構師',en:'Smart System Architect',phase:'learn',status:'done',date:'2026/07/20',
    focus:'輿情 · 路徑 · 整合 · AI 代理人',boss:'Day20 綜合測驗 + BOSS IV',
    days:['輿情分析','路徑規劃','整合架構','AI 代理人','綜合測驗 + BOSS IV'],
    dayAlbums:[
@@ -2604,11 +2698,11 @@ const JOURNEY = [
     {d:'D20',t:'綜合測驗 + BOSS IV',url:'https://drive.google.com/drive/folders/1WmOTaPafFhJ-HatW5IG9WCpj25Q77ncM'}
    ],
    deliv:['Day5 分組簡報','綜合測驗','課堂照片','學員心得']},
-  {wk:'W5',role:'專案啟動',en:'Project Kickoff',phase:'project',status:'scheduled',date:'2026/07/27',
+  {wk:'W5',role:'專案啟動',en:'Project Kickoff',phase:'project',status:'live',date:'2026/07/27',
    focus:'VPC · WBS · 甘特 · 環境建置',boss:'M1 · 章程審查',
    days:['專題選題 · VPC','WBS 與甘特','資料生成','環境建置','M1 · 章程審查'],
    deliv:['專題企劃書','資料生成規劃','里程碑 M1']},
-  {wk:'W6',role:'核心實作',en:'Core Implementation',phase:'project',status:'locked',date:'2026/08/03',
+  {wk:'W6',role:'核心實作',en:'Core Implementation',phase:'project',status:'scheduled',date:'2026/08/03',
    focus:'VRP · 倉儲熱區 · 溫控告警',boss:'M2 · 原型驗收',
    days:['特徵工程','VRP 路線 / 熱區','溫控告警','模型調優','M2 · 原型驗收'],
    deliv:['MVP 原型','開發紀錄','里程碑 M2']},
@@ -2715,7 +2809,8 @@ function renderDrop(w, kind){
 
 // ============ 媒體中心邏輯 ============
 const REELS = {
- 'W1\u2013W2':'https://www.youtube.com/embed/7o7YwgNkJE4?si=GcsLjcTVeWe3QnpH'
+ 'W1\u2013W2':'https://www.youtube.com/embed/7o7YwgNkJE4?si=GcsLjcTVeWe3QnpH',
+ 'W3\u2013W4':'https://www.youtube.com/embed/8qjFRZuINP4'
 };
 function pairOf(wk){ var n=+wk.slice(1); var lo=Math.floor((n-1)/2)*2+1; return 'W'+lo+'\u2013W'+(lo+1); }
 (function mediaHub(){
@@ -2732,6 +2827,10 @@ function pairOf(wk){ var n=+wk.slice(1); var lo=Math.floor((n-1)/2)*2+1; return 
   function render(){
     var w=JOURNEY.find(function(x){return x.wk===curWk;});
     weeksEl.querySelectorAll('.mh-wk').forEach(function(b){b.classList.toggle('on',b.dataset.wk===curWk);});
+    // 只顯示該週有內容的分頁
+    var avail={reel:!!REELS[pairOf(w.wk)], album:!!(w.dayAlbums&&w.dayAlbums.length), decks:!!(w.decks&&w.decks.length)};
+    tabs.forEach(function(t){ t.style.display = avail[t.dataset.tab] ? '' : 'none'; });
+    if(!avail[curTab]){ curTab = (avail.reel?'reel':avail.album?'album':avail.decks?'decks':'reel'); }
     tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===curTab);});
     subEl.style.display='none'; subEl.innerHTML='';
     if(curTab==='reel'){
@@ -2958,32 +3057,82 @@ function openWkModal(w, kind){
 // ============ 學員專區 ============
 // 每位學員可填 url（個人介紹/作品網頁）與 intro（一句話）。填了 url 卡片即可點擊前往。
 const STUDENTS=[
- {no:'01',name:'劉書語',url:'',intro:''},{no:'03',name:'黃O麟',url:'',intro:''},
- {no:'04',name:'徐O廷',url:'',intro:''},{no:'05',name:'鄭博文',url:'',intro:''},
- {no:'06',name:'陳又昱',url:'',intro:''},{no:'08',name:'林庭毅',url:'',intro:''},
- {no:'10',name:'劉冠廷',url:'',intro:''},
- {no:'11',name:'洪歆穎',url:'',intro:''},{no:'12',name:'邱韻伃',url:'',intro:''},
- {no:'15',name:'林哲均',url:'',intro:''},
- {no:'16',name:'陳品竹',url:'',intro:''},{no:'17',name:'羅煜清',url:'',intro:''},
- {no:'18',name:'廖之畇',url:'',intro:''},{no:'19',name:'Chris',url:'',intro:''},
- {no:'21',name:'梁祐誠',url:'',intro:''},
- {no:'22',name:'劉竹瑛',url:'',intro:''},{no:'23',name:'籃靖雯',url:'',intro:''}
+ {no:'01',name:'劉書語',field:'人文',web:'https://kokoro930314-sudo.github.io/portfolio/',deck:'https://drive.google.com/file/d/1SStgnIhFQQ222A1ogCRgDX0SZq6ZZEvJ/view'},
+ {no:'03',name:'黃O麟',field:'理工',web:'https://pubilyyen.github.io/',deck:'https://pubilyyen.github.io/slides.html'},
+ {no:'04',name:'徐O廷',field:'商管',web:'https://yiting-hsu93.github.io/',deck:'https://docs.google.com/presentation/d/1npAzqbAEUuve1Pt1kzReBADBM9AkjPhE1h-PlVjwHJ0/edit'},
+ {no:'05',name:'鄭博文',field:'理工',web:'https://powen-cheng.github.io',deck:'https://docs.google.com/presentation/d/1yH1uGUGc1dGyj4OD88Ic6jp-9kO8ZnOM/edit'},
+ {no:'06',name:'陳又昱',field:'理工',web:'https://Ferzbow.github.io/',deck:'https://notebooklm.google.com/notebook/81aa959f-8ddf-4027-bc3b-f800e5086525/artifact/5f1086e9-507a-4f94-9fe8-a1201267bca1'},
+ {no:'08',name:'林庭毅',field:'理工',web:'https://joulu1225.github.io/joulu1225_AI_D20.github.io/',deck:'https://notebooklm.google.com/notebook/cb821d9b-84e4-4b97-9849-96b88ac96f41/artifact/0c2f3330-f951-4e8a-9c27-724f78af4b55'},
+ {no:'10',name:'劉冠廷',field:'商管',web:'https://aitim0109-tim.github.io/ai-portfolio/',deck:'https://docs.google.com/presentation/d/1exgyC15Z3vXpLvMMdqK8ew_6PE31suLgnHRk-zI-J10/edit'},
+ {no:'11',name:'洪歆穎',field:'資管',web:'https://cececccee1.github.io/index/',deck:'https://docs.google.com/presentation/d/e/2PACX-1vRth1zx5-KFABz5qo3oPFnRakNXnd-EvaWXdvur5mHJxPDKaln5M-g3kCPAdDBUyyoLvXyoB6PNNTVX/pubembed'},
+ {no:'12',name:'邱韻伃',field:'人文',web:'https://yuchiu1207.github.io/',deck:'https://yuchiu1207.github.io/logistics_report.pdf'},
+ {no:'15',name:'林哲均',field:'人文',web:'',deck:''},
+ {no:'16',name:'陳品竹',field:'理工',web:'https://coyie25852-eng.github.io/course-portfolio/',deck:'https://coyie25852-eng.github.io/course-portfolio/chen_pin_chu_ai_marketing_portfolio.pdf'},
+ {no:'17',name:'羅煜清',field:'商管',web:'https://11113ayay.github.io/AI-portfolio/',deck:'https://docs.google.com/presentation/d/1Lfys10TuYNY0BMKQzSbbeTJILv1_yaoi1_GcwxhINco/edit'},
+ {no:'18',name:'廖之畇',field:'商管',web:'https://cydailystudio.github.io/aibi-portfolio/',deck:'https://cydailystudio.github.io/aibi-portfolio/slides.html'},
+ {no:'19',name:'Chris',field:'人文',web:'https://yoyoyo5566.github.io/ops-decision-hub/',deck:'https://docs.google.com/presentation/d/1OBOx4e93iaFkN7EETrElReuMqjUAZdbbaayxb0i4rW0/edit'},
+ {no:'21',name:'梁祐誠',field:'理工',web:'https://yu-ai-portfolio.netlify.app/',deck:'https://yu-ai-portfolio.netlify.app/boss1'},
+ {no:'22',name:'劉竹瑛',field:'商管',web:'https://juying0412-droid.github.io/ai-portfolio/',deck:'https://docs.google.com/presentation/d/1VKkztSipKlaLvZgj7JyTaHDP9OGl4R-IsFgiiUcb-eM/edit'},
+ {no:'23',name:'籃靖雯',field:'人文',web:'https://butter866323-hash.github.io/BOSS_II-/',deck:'https://docs.google.com/presentation/d/1AbGbPSRFZgAuThoJaOJCHIauyKyP6lOMC8ZO4jSKxYw/edit'}
 ];
 (function renderStudents(){
   const g=document.getElementById('studentGrid'); if(!g) return;
   const N=23;
-  g.innerHTML=STUDENTS.map(st=>{
-    const has=st.url&&st.url.trim()&&!st.noLink;
-    const tag=has?'a':'div';
-    const attr=has?(' href="'+st.url+'" target="_blank" rel="noopener"'):'';
-    const link=st.noLink?'':(has?'<span class="st-link">查看介紹 <span class="ar">→</span></span>':'<span class="st-link todo">介紹準備中</span>');
-    const intro=st.intro?('<p class="mission" style="margin-top:6px">'+st.intro+'</p>'):'';
-    return '<'+tag+' class="cell c2 glass student-card" id="stu-'+st.no+'"'+attr+'>'
-      +'<span class="st-no">'+st.no+' / '+String(N).padStart(2,'0')+'</span>'
-      +'<div class="avatar" data-i="'+st.name.charAt(0)+'"></div>'
-      +'<h4>'+st.name+'</h4>'+intro+link
-      +'</'+tag+'>';
+  const iconPerson='<svg viewBox=\"0 0 40 40\" aria-hidden=\"true\"><circle cx=\"20\" cy=\"14.5\" r=\"6\"/><path d=\"M7.5 33v-1.5c0-6.6 5.8-10.5 12.5-10.5S32.5 24.9 32.5 31.5V33\"/></svg>';
+  g.innerHTML=STUDENTS.map(function(st){
+    var hasWeb=st.web&&st.web.trim(), hasDeck=st.deck&&st.deck.trim(), work=hasWeb||hasDeck;
+    var btns = work
+      ? '<div class=\"sc-links\">'
+        +(hasWeb?'<button class=\"sc-btn primary\" data-open=\"web\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18\"/></svg>作品網頁</button>':'')
+        +(hasDeck?'<button class=\"sc-btn ghost\" data-open=\"deck\"><svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"13\" rx=\"1.6\"/><path d=\"M8 21h8M12 17v4\"/></svg>簡報</button>':'')
+        +'</div>'
+      : '<div class=\"sc-links\"><span class=\"sc-btn todo\">作品準備中</span></div>';
+    return '<div class=\"cell c2 glass student-card'+(work?' has-work':'')+'\" id=\"stu-'+st.no+'\" data-stu=\"'+st.no+'\">'
+      +'<div class=\"sc-head\"><span class=\"st-no\">'+st.no+' / '+String(N).padStart(2,'0')+'</span>'
+        +'</div>'
+      +'<div class=\"sc-compact\">'
+        +'<div class=\"avatar boxfig\">'+iconPerson+'</div>'
+        +'<h4>'+st.name+'</h4>'
+        +btns
+      +'</div>'
+      +'<div class=\"sc-viewer\"></div>'
+      +'</div>';
   }).join('');
+
+  function toEmbed(u){
+    var m=u.match(/presentation\/d\/e\/([\w-]+)/); if(m) return 'https://docs.google.com/presentation/d/e/'+m[1]+'/pubembed?start=false&loop=false&delayms=3000';
+    m=u.match(/presentation\/d\/([\w-]+)/); if(m) return 'https://docs.google.com/presentation/d/'+m[1]+'/embed?start=false&loop=false&delayms=3000';
+    m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/); if(m) return 'https://drive.google.com/file/d/'+m[1]+'/preview';
+    return u;
+  }
+  function collapse(card){ card.classList.remove('expanded'); var v=card.querySelector('.sc-viewer'); if(v) v.innerHTML=''; }
+  function expand(no,kind){
+    var card=document.getElementById('stu-'+no), st=STUDENTS.find(function(x){return x.no===no;}); if(!card||!st) return;
+    var hasWeb=st.web&&st.web.trim(), hasDeck=st.deck&&st.deck.trim(); if(!hasWeb&&!hasDeck) return;
+    if(!kind) kind=hasWeb?'web':'deck';
+    g.querySelectorAll('.student-card.expanded').forEach(function(c){ if(c!==card) collapse(c); });
+    card.classList.add('expanded');
+    var vw=card.querySelector('.sc-viewer');
+    function view(k){
+      var url=k==='deck'?st.deck:st.web, tabs='';
+      if(hasWeb) tabs+='<button class=\"scv-tab'+(k==='web'?' on':'')+'\" data-k=\"web\">作品網頁</button>';
+      if(hasDeck) tabs+='<button class=\"scv-tab'+(k==='deck'?' on':'')+'\" data-k=\"deck\">學習簡報</button>';
+      vw.innerHTML='<div class=\"scv-head\"><div class=\"scv-meta\"><span class=\"scv-no\">'+no+' / '+N+'</span><b>'+st.name+'</b></div>'
+        +'<div class=\"scv-right\"><div class=\"scv-tabs\">'+tabs+'</div>'
+        +'<a class=\"scv-open\" href=\"'+url+'\" target=\"_blank\" rel=\"noopener\">新分頁 ↗</a>'
+        +'<button class=\"scv-close\" aria-label=\"收合\">&#10005;</button></div></div>'
+        +'<div class=\"scv-body\"><iframe src=\"'+toEmbed(url)+'\" loading=\"lazy\" allowfullscreen></iframe></div>';
+      vw.querySelectorAll('.scv-tab').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();view(t.dataset.k);});});
+      vw.querySelector('.scv-close').addEventListener('click',function(e){e.stopPropagation();collapse(card);});
+    }
+    view(kind);
+    setTimeout(function(){var y=card.getBoundingClientRect().top+scrollY-90;scrollTo({top:y,behavior:'smooth'});},90);
+  }
+  g.querySelectorAll('.student-card.has-work').forEach(function(card){
+    var no=card.dataset.stu;
+    card.querySelectorAll('.sc-btn[data-open]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();expand(no,b.dataset.open);});});
+    card.addEventListener('click',function(){ if(!card.classList.contains('expanded')) expand(no,null); });
+  });
 })();
 
 // 每日相簿：日期切換
