@@ -1444,6 +1444,32 @@ body{background:
 .wkd-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* 作品區敬請期待 */
+
+/* 四大企業真題 */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.case{padding:28px 26px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.case:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft);}
+.case-ic{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--blue);
+  background:linear-gradient(150deg,rgba(10,108,255,.1),rgba(31,207,207,.08));border:1px solid rgba(10,108,255,.14);}
+.case-ic svg{width:32px;height:32px;}
+.case-ic.ci-rev{color:#12a89a;}.case-ic.ci-dc{color:#5B7FD6;}.case-ic.ci-route{color:#E08A2B;}
+.case-tag{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.ct-theme{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--blue);background:rgba(10,108,255,.09);border:1px solid rgba(10,108,255,.2);padding:3px 10px;border-radius:100px;}
+.ct-ind{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);}
+.case h3{font-size:19px;letter-spacing:-.01em;}
+.case>p{font-size:14px;color:var(--ink-soft);line-height:1.75;flex:1;}
+.case-foot{padding-top:12px;border-top:1px solid var(--line);}
+.cf-tutor{font-family:var(--font-mono);font-size:11.5px;font-weight:700;color:var(--ink-soft);}
+.case-note{margin-top:20px;display:flex;align-items:center;gap:10px;justify-content:center;text-align:center;flex-wrap:wrap;
+  font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);letter-spacing:.02em;}
+.case-note b{color:var(--blue);}
+.cn-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(31,207,207,.14);animation:blink 1.6s infinite;}
+:root[data-theme="dark"] .case-ic{background:linear-gradient(150deg,rgba(143,180,232,.14),rgba(245,185,74,.08));border-color:rgba(143,180,232,.2);color:#8FB4E8;}
+:root[data-theme="dark"] .case-ic.ci-rev{color:#3FD0C0;}:root[data-theme="dark"] .case-ic.ci-dc{color:#9FBCEC;}:root[data-theme="dark"] .case-ic.ci-route{color:#F5B94A;}
+:root[data-theme="dark"] .ct-theme{color:#F5B94A;background:rgba(245,185,74,.12);border-color:rgba(245,185,74,.3);}
+:root[data-theme="dark"] .case-note b{color:#F5B94A;}
+@media(max-width:760px){.case-grid{grid-template-columns:1fr;}}
+
 .teaser-wrap{padding:20px 0;}
 .teaser-card{padding:44px 40px;position:relative;overflow:hidden;}
 .teaser-card h3{font-size:26px;margin:14px 0 12px;}
@@ -2326,34 +2352,55 @@ body{background:
   <div class="hero-split-grid">
     <div data-reveal>
       <div class="eyebrow">Project Showcase · W5–W8 企業真題</div>
-      <h1>企業真題成果，<br><span class="grad">敬請期待</span>。</h1>
+      <h1>四大企業真題，<br><span class="grad">真實場域</span>出題。</h1>
     </div>
     <div data-reveal>
-      <p>W5–W8 各組將把企業真實出題做成能上線的物流 MVP。本屆已鎖定的技術亮點包含 Shadow Mode 數位孿生模擬；完整成果將於 Demo Day 後於此區塊揭曉——每組會有介紹頁、GitHub 與 Demo 影片。</p>
+      <p>W5–W8 進入企業真題實戰——由 ITRI 業師帶入四類物流產業的真實場域問題，各組將它做成能驗證的 AI 解決方案。以下為四大真題主題；每組的完整專題頁、Demo 影片與實測成果將於 Demo Day 後揭曉。</p>
     </div>
   </div>
 </header>
 
 <section class="section mesh" style="padding-top:20px">
   <div class="wrap">
-    <div class="bento" data-reveal>
-      <div class="teaser-wrap" data-reveal>
-      <div class="teaser-card glass">
-        <span class="ribbon">COMING SOON</span>
-        <h3>企業真題 · 5 大主題方向</h3>
-        <p>學員將於 W5–W8 分組認領企業出題，方向包含智慧倉儲、路徑優化、AI 助手、控制塔整合、數位孿生模擬。Demo Day 後，每一組的完整專題頁、程式碼、Demo 影片、實測數據都會在這裡揭曉。</p>
-        <div class="teaser-chips">
-          <span>Warehouse AI</span><span>Route VRP</span><span>AI Agent</span><span>Control Tower</span><span>Shadow Mode</span>
-        </div>
-        <div class="teaser-" aria-hidden="true">
-          <div class="tp-card"><span class="tp-tag">Project 01</span><div class="tp-line"></div><div class="tp-line short"></div></div>
-          <div class="tp-card"><span class="tp-tag">Project 02</span><div class="tp-line"></div><div class="tp-line short"></div></div>
-          <div class="tp-card"><span class="tp-tag">Project 03</span><div class="tp-line"></div><div class="tp-line short"></div></div>
-          <div class="tp-veil"><b>敬請期待</b><span>Stay tuned · Demo Day 揭曉</span></div>
-        </div>
+    <div class="case-grid" data-reveal>
+
+      <div class="case glass">
+        <div class="case-ic ci-cold"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="14" width="15" height="26" rx="1.5"/><rect x="26" y="14" width="15" height="26" rx="1.5"/><path d="M7 22h15M7 30h15M26 22h15M26 30h15"/><path d="M24 6v9M20.5 9L24 12l3.5-3M24 15l-3.5-3M24 15l3.5-3"/></svg></div>
+        <div class="case-tag"><span class="ct-theme">冷鏈倉儲</span><span class="ct-ind">電商冷鏈物流</span></div>
+        <h3>低溫冷凍自動倉儲優化</h3>
+        <p>為冷鏈電商倉導入 ABC 分級儲放與訂單分群，優化自動倉與傳統倉的揀貨動線，縮短出貨等待時間。</p>
+        <div class="case-foot"><span class="cf-tutor">出題業師 · ITRI 施佑林</span></div>
       </div>
+
+      <div class="case glass">
+        <div class="case-ic ci-rev"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40h32"/><rect x="11" y="26" width="6" height="12"/><rect x="21" y="18" width="6" height="20"/><rect x="31" y="10" width="6" height="28"/><path d="M9 20l8-6 6 4 10-10"/><circle cx="39" cy="8" r="1.4" fill="currentColor"/></svg></div>
+        <div class="case-tag"><span class="ct-theme">營收預測</span><span class="ct-ind">連鎖零售 · 便利商店</span></div>
+        <h3>門市營收 AI 智慧回推</h3>
+        <p>在無單店真值的前提下，以周邊 POI、在地人口與地段成本建立無監督權重模型，將總營收合理分配至數千間門市。</p>
+        <div class="case-foot"><span class="cf-tutor">出題業師 · ITRI 馬大程</span></div>
+      </div>
+
+      <div class="case glass">
+        <div class="case-ic ci-dc"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="20" height="30" rx="1.5"/><path d="M11 15h12M11 21h12M11 27h12M11 33h7"/><path d="M27 18h9l5 5v16h-14" /><path d="M31 39v-8h6v8"/></svg></div>
+        <div class="case-tag"><span class="ct-theme">統倉店配</span><span class="ct-ind">零售物流</span></div>
+        <h3>統倉店配作業優化</h3>
+        <p>結合門市出貨訂單時效與 DC 倉庫實體配置，優化揀貨路徑與店配排程，提升整體出貨效率。</p>
+        <div class="case-foot"><span class="cf-tutor">出題業師 · ITRI 謝孟芹</span></div>
+      </div>
+
+      <div class="case glass">
+        <div class="case-ic ci-route"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34h4l2-5h13l2 5h3"/><rect x="28" y="24" width="11" height="10" rx="1"/><circle cx="14" cy="37" r="3"/><circle cx="34" cy="37" r="3"/><path d="M10 20c0-3 2.5-5 5.5-5S21 17 21 20s-5.5 8-5.5 8S10 23 10 20z"/><circle cx="15.5" cy="20" r="1.4"/></svg></div>
+        <div class="case-tag"><span class="ct-theme">運輸調度</span><span class="ct-ind">連鎖超商運輸</span></div>
+        <h3>配送超量偵測與調度</h3>
+        <p>為每日數千門市的多趟次配送找出超量路線，在車輛載重與門市併／拆線規則下，求出所有貨物皆可送達的可行解。</p>
+        <div class="case-foot"><span class="cf-tutor">出題業師 · ITRI 秦鼎</span></div>
+      </div>
+
     </div>
+    <div class="case-note" data-reveal>
+      <span class="cn-dot"></span>各組認領上述真題進行實作 · 完整專題成果、Demo 影片與實測數據將於 <b>Demo Day（08/26）</b> 後於此揭曉
     </div>
+  </div>
 </section>
 </section>
 
@@ -2698,21 +2745,21 @@ const JOURNEY = [
     {d:'D20',t:'綜合測驗 + BOSS IV',url:'https://drive.google.com/drive/folders/1WmOTaPafFhJ-HatW5IG9WCpj25Q77ncM'}
    ],
    deliv:['Day5 分組簡報','綜合測驗','課堂照片','學員心得']},
-  {wk:'W5',role:'專案啟動',en:'Project Kickoff',phase:'project',status:'live',date:'2026/07/27',
-   focus:'VPC · WBS · 甘特 · 環境建置',boss:'M1 · 章程審查',
-   days:['專題選題 · VPC','WBS 與甘特','資料生成','環境建置','M1 · 章程審查'],
-   deliv:['專題企劃書','資料生成規劃','里程碑 M1']},
-  {wk:'W6',role:'核心實作',en:'Core Implementation',phase:'project',status:'scheduled',date:'2026/08/03',
-   focus:'VRP · 倉儲熱區 · 溫控告警',boss:'M2 · 原型驗收',
-   days:['特徵工程','VRP 路線 / 熱區','溫控告警','模型調優','M2 · 原型驗收'],
+  {wk:'W5',role:'辨識 Recognition',en:'Recognition',phase:'project',status:'live',date:'2026/07/27',
+   focus:'AI 賦能專案管理 · 影像辨識 · 企業真題啟動',boss:'M1 · 專案啟動審查',
+   days:['Day21 · AI 賦能專案管理｜企業真題說明','Day22 · 分組專題實作','Day23 · 物流影像辨識與貨物堆疊','Day24 · 分組專題實作','Day25 · 【M1】專案啟動審查'],
+   deliv:['專案章程','企業真題認領','里程碑 M1']},
+  {wk:'W6',role:'優化 Optimization',en:'Optimization',phase:'project',status:'scheduled',date:'2026/08/03',
+   focus:'智慧倉儲庫存優化 · 路徑與排程最佳化',boss:'M2 · 期中審查',
+   days:['Day26 · 智慧倉儲庫存優化','Day27 · 分組專題實作','Day28 · 路徑與排程最佳化','Day29 · 分組專題實作','Day30 · 【M2】期中審查'],
    deliv:['MVP 原型','開發紀錄','里程碑 M2']},
-  {wk:'W7',role:'控制塔整合',en:'Integration',phase:'project',status:'locked',date:'2026/08/10',
-   focus:'Multi-Echelon · 代理層 · 追蹤儀表板',boss:'M3 · 整合驗收',
-   days:['Multi-Echelon 整合','AI 代理層','追蹤儀表板','端到端聯調','M3 · 整合驗收'],
+  {wk:'W7',role:'代理 Agent',en:'Agent',phase:'project',status:'scheduled',date:'2026/08/10',
+   focus:'需求預測與商業決策 · 倉儲數位雙生與物流減碳',boss:'M3 · 系統整合審查',
+   days:['Day31 · 需求預測與商業決策分析','Day32 · 分組專題實作','Day33 · 倉儲數位雙生系統與物流減碳','Day34 · 分組專題實作','Day35 · 【M3】系統整合審查'],
    deliv:['整合系統','展示影片','里程碑 M3']},
-  {wk:'W8',role:'成果發表',en:'Demo Day',phase:'project',status:'locked',date:'2026/08/17',
-   focus:'Demo Day · 就業媒合',boss:'亮點案例',
-   days:['壓力測試','簡報健檢','總裝彩排','Demo 預演','Demo Day · 就業媒合'],
+  {wk:'W8',role:'收斂 · 發表 · 結訓',en:'Demo & Match Day',phase:'project',status:'locked',date:'2026/08/24',
+   focus:'實機彩排 · Demo Day · Match Day · 結訓典禮',boss:'Demo Day · 成果發表',
+   days:['Day36 · 分組專題實作','Day37 · 【彩排】實機彩排與模擬評審','Day38 · 【Demo Day】各組簡報 20分＋Q&A｜成果發表與媒合','Day39 · 【Match Day】成果發表與廠商媒合','Day40 · 【結訓日】典禮、證書、專案回顧與反思'],
    deliv:['最終 Demo','成果簡報','就業媒合']}
 ];
 const ST={done:{cls:'is-done',chip:'st-done',label:'Completed',pre:'\u2713 '},
