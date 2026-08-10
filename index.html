@@ -1722,6 +1722,20 @@ body{background:
 :root[data-theme="dark"] .scv-field{color:#F5B94A;background:rgba(245,185,74,.12);border-color:rgba(245,185,74,.3);}
 @media(max-width:640px){.scv-body{min-height:340px;}}
 
+
+/* 學員照片頭像 */
+.student-card .avatar.photo{padding:0;overflow:hidden;background:linear-gradient(160deg,#F2F6FC,#E4EDF7);box-shadow:inset 0 0 0 1px rgba(11,27,51,.06);}
+.student-card .avatar.photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
+.student-card .avatar.photo .ph-fb{display:none;}
+.student-card .avatar.photo.noimg{display:flex;align-items:center;justify-content:center;}
+.student-card .avatar.photo.noimg .ph-fb{display:block;}
+.student-card .avatar.photo.noimg .ph-fb svg{width:32px;height:32px;fill:none;stroke:var(--blue);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+/* 可就業地區 */
+.student-card .sc-city{display:flex;align-items:flex-start;gap:7px;margin-top:12px;font-size:12px;color:var(--ink-soft);line-height:1.55;}
+.student-card .sc-city svg{width:15px;height:15px;flex-shrink:0;margin-top:1px;color:var(--blue);}
+.student-card .sc-city b{display:block;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:2px;}
+:root[data-theme="dark"] .student-card .sc-city svg{color:#F5B94A;}
+
 </style>
 </head>
 <body>
@@ -3132,7 +3146,7 @@ function openWkModal(w, kind){
 // 每位學員可填 url（個人介紹/作品網頁）與 intro（一句話）。填了 url 卡片即可點擊前往。
 const STUDENTS=[
  {no:'01',name:'劉書語',web:'https://kokoro930314-sudo.github.io/portfolio/',deck:'https://drive.google.com/file/d/1SStgnIhFQQ222A1ogCRgDX0SZq6ZZEvJ/view'},
- {no:'03',name:'黃O麟',web:'https://pubilyyen.github.io/',deck:'https://pubilyyen.github.io/slides.html'},
+ {no:'03',name:'黃O麟',web:'https://pubilyyen.github.io/',deck:'https://pubilyyen.github.io/slides.html',photo:'1ov7iTixZWDcRzTEb9pNcIlyHXON-dzVn',city:'台中市 · 新竹市(香山) · 桃園市(龜山) · 台北市(萬隆)'},
  {no:'04',name:'徐O廷',web:'https://yiting-hsu93.github.io/',deck:'https://docs.google.com/presentation/d/1npAzqbAEUuve1Pt1kzReBADBM9AkjPhE1h-PlVjwHJ0/edit'},
  {no:'05',name:'鄭博文',web:'https://powen-cheng.github.io',deck:'https://docs.google.com/presentation/d/1yH1uGUGc1dGyj4OD88Ic6jp-9kO8ZnOM/edit'},
  {no:'06',name:'陳又昱',web:'https://Ferzbow.github.io/',deck:'https://drive.google.com/file/d/1pYE6o0pAewOMHdS49eR8NuU6-e-Ao7xY/preview'},
@@ -3145,7 +3159,7 @@ const STUDENTS=[
  {no:'17',name:'羅煜清',web:'https://11113ayay.github.io/AI-portfolio/',deck:'https://docs.google.com/presentation/d/1Lfys10TuYNY0BMKQzSbbeTJILv1_yaoi1_GcwxhINco/edit'},
  {no:'18',name:'廖之畇',web:'https://cydailystudio.github.io/aibi-portfolio/',deck:'https://cydailystudio.github.io/aibi-portfolio/slides.html'},
  {no:'19',name:'Chris',web:'https://yoyoyo5566.github.io/ops-decision-hub/',deck:'https://docs.google.com/presentation/d/1OBOx4e93iaFkN7EETrElReuMqjUAZdbbaayxb0i4rW0/edit'},
- {no:'20',name:'楊O佩',web:'https://hnes97084.github.io/my-logistics-portfolio-2607252000/',deck:'https://docs.google.com/presentation/d/1Xa_ykh2lyd9nhcMyVJI6V6Jcii-yBy0HRwvlF-hwQWQ/edit'},
+ {no:'20',name:'楊O佩',web:'https://hnes97084.github.io/my-logistics-portfolio-2607252000/',deck:'https://docs.google.com/presentation/d/1Xa_ykh2lyd9nhcMyVJI6V6Jcii-yBy0HRwvlF-hwQWQ/edit',city:'台中市'},
  {no:'21',name:'梁祐誠',web:'https://yu-ai-portfolio.netlify.app/',deck:'https://yu-ai-portfolio.netlify.app/boss1'},
  {no:'22',name:'劉竹瑛',web:'https://juying0412-droid.github.io/ai-portfolio/',deck:'https://docs.google.com/presentation/d/1VKkztSipKlaLvZgj7JyTaHDP9OGl4R-IsFgiiUcb-eM/edit'},
  {no:'23',name:'籃靖雯',web:'https://butter866323-hash.github.io/BOSS_II-/',deck:'https://docs.google.com/presentation/d/1AbGbPSRFZgAuThoJaOJCHIauyKyP6lOMC8ZO4jSKxYw/edit'}
@@ -3166,8 +3180,11 @@ const STUDENTS=[
       +'<div class=\"sc-head\"><span class=\"st-no\">'+st.no+' / '+String(N).padStart(2,'0')+'</span>'
         +'</div>'
       +'<div class=\"sc-compact\">'
-        +'<div class=\"avatar boxfig\">'+iconPerson+'</div>'
+        +(st.photo
+            ? '<div class=\"avatar photo\"><img src=\"https://drive.google.com/thumbnail?id='+st.photo+'&sz=w400\" alt=\"\" referrerpolicy=\"no-referrer\" onerror=\"this.parentNode.classList.add(\'noimg\');this.remove();\"><span class=\"ph-fb\">'+iconPerson+'</span></div>'
+            : '<div class=\"avatar boxfig\">'+iconPerson+'</div>')
         +'<h4>'+st.name+'</h4>'
+        +(st.city ? '<div class=\"sc-city\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/></svg><span><b>可就業地區</b>'+st.city+'</span></div>' : '')
         +btns
       +'</div>'
       +'<div class=\"sc-viewer\"></div>'
